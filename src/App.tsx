@@ -40,8 +40,8 @@ import {
   Filter
 } from 'lucide-react';
 
-// Profile picture default path
-const PROFILE_IMAGE = '/junior-cortez.jpg';
+// Profile picture default path (relative for GitHub Pages compatibility)
+const PROFILE_IMAGE = './junior-cortez.jpg';
 
 
 // Types

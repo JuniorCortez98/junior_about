@@ -48,6 +48,7 @@ function avatarUploadPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
+    base: './',
     plugins: [react(), tailwindcss(), avatarUploadPlugin()],
     resolve: {
       alias: {
