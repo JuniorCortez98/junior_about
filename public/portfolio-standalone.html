@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junior A. Cortez García | Consultor Sanitario & Especialista HL7</title>
+  <meta name="description" content="Portfolio profesional de Junior A. Cortez García - Consultor Funcional de Sistemas Sanitarios, Especialista en Interoperabilidad (HL7 & Mirth ESB) y Ex-Referente de BBDD & Infraestructura.">
+
+  <!-- Tailwind CSS por CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              sky: '#0284c7',
+              dark: '#0b1120',
+              card: '#0f172a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tipografía Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Iconos Lucide por CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #0b1120;
+      color: #f1f5f9;
+      letter-spacing: -0.01em;
+    }
+    .bg-executive-mesh {
+      background-color: #0b1120;
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(14, 116, 144, 0.08) 0px, transparent 50%),
+        radial-gradient(at 85% 25%, rgba(2, 132, 199, 0.06) 0px, transparent 50%),
+        radial-gradient(at 50% 85%, rgba(15, 23, 42, 0.4) 0px, transparent 60%);
+    }
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #0b1120; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+  </style>
+</head>
+<body class="bg-[#0b1120] text-slate-100 antialiased selection:bg-sky-500 selection:text-white bg-executive-mesh relative min-h-screen">
+
+  <!-- Notificación Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-2.5 px-4 py-3 bg-slate-900 border border-slate-700 text-slate-200 rounded-xl shadow-2xl backdrop-blur-md">
+    <i data-lucide="check" class="w-4 h-4 text-sky-400"></i>
+    <span id="toast-text" class="text-sm font-medium">Copiado al portapapeles</span>
+  </div>
+
+  <!-- A. HEADER / NAVEGACIÓN -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-[#0b1120]/90 backdrop-blur-md border-b border-slate-800 py-3.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Logotipo Ejecutivo -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-100 font-bold text-sm tracking-wide group-hover:border-sky-500/60 transition-colors">
+          JC
+        </div>
+        <div>
+          <div className="flex items-center gap-2">
+            <span class="font-semibold text-slate-100 tracking-tight text-base sm:text-lg group-hover:text-sky-400 transition-colors">
+              Junior Cortez
+            </span>
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+          </div>
+          <span class="text-xs text-slate-400 block -mt-0.5">Consultor Sanitario | HL7</span>
+        </div>
+      </a>
+
+      <!-- Enlaces de Navegación (Desktop) -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#inicio" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-colors">Inicio</a>
+        <a href="#evolucion" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-colors">Evolución</a>
+        <a href="#ecosistema" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-colors">Ecosistema & Stack</a>
+        <a href="#hitos" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-colors">Hitos</a>
+        <a href="#interoperabilidad" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-colors">HL7 & Mirth</a>
+        <a href="#educacion" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-colors">Formación</a>
+        <a href="#contacto" class="px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Botones de Acción -->
+      <div class="hidden sm:flex items-center gap-2.5">
+        <a href="https://www.linkedin.com/in/junior-alexander-cortez-garcia-b8726a150" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-800 transition-colors" title="LinkedIn Oficial">
+          <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i>
+        </a>
+        <a href="#contacto" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-medium text-sm transition-all shadow-sm">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>Contactar</span>
+        </a>
+      </div>
+
+      <!-- Menú Móvil -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white rounded-lg focus:outline-none" aria-label="Abrir Menú">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0b1120] border-b border-slate-800 px-4 pt-3 pb-6 space-y-2">
+      <a href="#inicio" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-sky-400 text-sm">Inicio</a>
+      <a href="#evolucion" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-sky-400 text-sm">Evolución Profesional</a>
+      <a href="#ecosistema" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-sky-400 text-sm">Ecosistema & Stack</a>
+      <a href="#hitos" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-sky-400 text-sm">Hitos Destacados</a>
+      <a href="#interoperabilidad" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-sky-400 text-sm">Interoperabilidad HL7</a>
+      <a href="#educacion" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-sky-400 text-sm">Formación Académica</a>
+      <a href="#contacto" onclick="closeMobileMenu()" class="block px-3 py-2 text-slate-300 hover:text-sky-400 text-sm">Contacto Directo</a>
+    </div>
+  </header>
+
+  <!-- B. HERO SECTION (PORTADA SOBRIA Y ELEGANTE) -->
+  <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Columna Izquierda: Información Principal -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/70 border border-slate-700/80 text-slate-300 text-xs font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Disponible para proyectos e implantaciones hospitalarias</span>
+          </div>
+
+          <div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              Junior A. <span class="text-sky-400">Cortez García</span>
+            </h1>
+            
+            <!-- Typewriter Dinámico -->
+            <div class="mt-3 flex items-center min-h-[38px] text-lg sm:text-xl font-medium text-slate-300">
+              <i data-lucide="terminal" class="w-5 h-5 mr-2 text-sky-400 flex-shrink-0"></i>
+              <span id="typewriter" class="text-white font-semibold"></span>
+              <span class="inline-block w-2 h-5 bg-sky-400 ml-1 animate-pulse"></span>
+            </div>
+          </div>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+            Especialista en <strong class="text-white font-semibold">Sistemas de Información Sanitaria</strong> con más de 5 años de trayectoria. Inicié como técnico de soporte N2, pasé a ser el referente técnico de <strong class="text-white font-semibold">Bases de Datos e Infraestructura (Dynatrace)</strong> y actualmente me enfoco en la <strong class="text-sky-400 font-semibold">consultoría funcional</strong>. Experiencia demostrada en arranques hospitalarios (ej. <em class="text-white not-italic font-medium">Hospital Quirónsalud Zaragoza</em>) y gestión de integraciones departamentales, destacando por traducir necesidades clínicas en soluciones técnicas eficaces.
+          </p>
+
+          <!-- Slogan Profesional -->
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 flex items-start gap-3">
+            <i data-lucide="briefcase" class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+            <div class="text-sm">
+              <span class="text-slate-400 block text-xs uppercase tracking-wider font-semibold">Visión Profesional</span>
+              <span class="text-slate-100 font-medium">"Listo para afrontar nuevos retos y liderar la integración técnica de entornos asistenciales complejos."</span>
+            </div>
+          </div>
+
+          <!-- Botones de Acción Directa -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a href="#contacto" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm transition-all shadow-md">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>Contactar Directamente</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/junior-alexander-cortez-garcia-b8726a150" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm border border-slate-700 transition-all">
+              <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i>
+              <span>Ver Perfil en LinkedIn</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400"></i>
+            </a>
+
+            <button onclick="copyToClipboard('+34 665 79 71 89', 'Teléfono copiado: +34 665 79 71 89')" class="inline-flex items-center gap-2 px-4 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 text-sm border border-slate-800 transition-colors" title="Copiar teléfono">
+              <i data-lucide="phone" class="w-4 h-4 text-sky-400"></i>
+              <span>+34 665 79 71 89</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs text-slate-400">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Madrid, España</span>
+            <span class="text-slate-600">•</span>
+            <button onclick="copyToClipboard('junior_98_cortez@outlook.es', 'Email copiado: junior_98_cortez@outlook.es')" class="hover:text-sky-400 underline decoration-slate-700 transition-colors">
+              junior_98_cortez@outlook.es
+            </button>
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Foto Auténtica con Marco Sobrio -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div class="relative w-full max-w-sm sm:max-w-md">
+            
+            <div class="relative rounded-2xl bg-slate-900 border border-slate-700/80 p-3.5 shadow-xl">
+              <div id="portrait-dropzone" class="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 transition-all group">
+                <img id="main-avatar-img" src="/junior-cortez.jpg" alt="Junior A. Cortez García" class="w-full h-full object-cover object-top filter brightness-100 contrast-100 transition-transform duration-500 group-hover:scale-102">
+                
+                <!-- Native Hidden File Input -->
+                <input type="file" id="photo-upload-input" accept="image/*" class="hidden" onchange="if(this.files && this.files[0]) handlePhotoUpload(this.files[0])">
+
+                <!-- Quick Button to update / load user original photo -->
+                <div class="absolute top-3 right-3 z-20">
+                  <button
+                    onclick="document.getElementById('photo-upload-input').click()"
+                    class="px-2.5 py-1.5 rounded-lg bg-slate-900/90 hover:bg-sky-600 text-slate-200 hover:text-white border border-slate-700/80 hover:border-sky-400 text-xs font-medium flex items-center gap-1.5 shadow-lg backdrop-blur-md transition-all group/btn"
+                    title="Cargar tu foto personal exacta"
+                  >
+                    <i data-lucide="camera" class="w-3.5 h-3.5 text-sky-400 group-hover/btn:text-white"></i>
+                    <span id="avatar-btn-label">Cargar mi foto</span>
+                  </button>
+                </div>
+
+                <!-- Bottom overlay badge -->
+                <div class="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-slate-950/90 backdrop-blur-md border border-slate-800 flex items-center justify-between">
+                  <div>
+                    <p class="text-xs font-semibold text-white">Junior A. Cortez García</p>
+                    <p class="text-[11px] text-slate-400">Consultoría e Implantación Sanitaria</p>
+                  </div>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-slate-700">
+                    Inetum
+                  </span>
+                </div>
+              </div>
+
+              <!-- Informative helper bar for photo selection -->
+              <div
+                id="photo-helper-bar"
+                onclick="document.getElementById('photo-upload-input').click()"
+                class="mt-2.5 p-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/70 cursor-pointer flex items-center justify-between text-xs text-slate-300 transition-colors"
+                title="Carga tu foto personal original (Gemini_Generated_Image_ye9y31ye9y31ye9y.jpg)"
+              >
+                <div class="flex items-center gap-2 overflow-hidden">
+                  <i data-lucide="camera" class="w-3.5 h-3.5 text-sky-400 flex-shrink-0"></i>
+                  <span class="truncate">Selecciona tu foto original</span>
+                </div>
+                <span class="text-sky-400 font-semibold hover:underline flex-shrink-0">Cargar archivo</span>
+              </div>
+
+              <div class="mt-3 grid grid-cols-2 gap-2 text-center">
+                <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+                  <div class="text-lg font-bold text-white">+5 Años</div>
+                  <div class="text-[11px] text-slate-400">Sistemas Sanitarios</div>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
+                  <div class="text-lg font-bold text-sky-400">Quirónsalud</div>
+                  <div class="text-[11px] text-slate-400">Hospital Zaragoza</div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra de Métricas y KPIs de Entrada -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 mb-1">
+            <span class="text-xs uppercase font-semibold tracking-wider">Trayectoria</span>
+            <i data-lucide="calendar" class="w-4 h-4 text-sky-400"></i>
+          </div>
+          <div class="text-2xl font-bold text-white">+5 Años</div>
+          <p class="text-xs text-slate-400 mt-1">Evolución transversal en Inetum España</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 mb-1">
+            <span class="text-xs uppercase font-semibold tracking-wider">Arranque Crítico</span>
+            <i data-lucide="building-2" class="w-4 h-4 text-sky-400"></i>
+          </div>
+          <div class="text-2xl font-bold text-white">Quirónsalud ZGZ</div>
+          <p class="text-xs text-slate-400 mt-1">Implantación in-situ y soporte clínico</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 mb-1">
+            <span class="text-xs uppercase font-semibold tracking-wider">Interoperabilidad</span>
+            <i data-lucide="layers" class="w-4 h-4 text-sky-400"></i>
+          </div>
+          <div class="text-2xl font-bold text-white">6+ Subsistemas</div>
+          <p class="text-xs text-slate-400 mt-1">HL7 / Mirth: RIS, LAB, ATLAS, Oncofarm...</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="flex items-center justify-between text-slate-400 mb-1">
+            <span class="text-xs uppercase font-semibold tracking-wider">Infraestructura</span>
+            <i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i>
+          </div>
+          <div class="text-2xl font-bold text-white">Dynatrace & SQL</div>
+          <p class="text-xs text-slate-400 mt-1">Monitorización APM y optimización T-SQL</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C. EVOLUCIÓN PROFESIONAL EN INETUM ESPAÑA (TIMELINE INTERACTIVO) -->
+  <section id="evolucion" class="py-20 bg-slate-900/60 border-y border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold mb-3">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Trayectoria 360°</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Evolución Profesional en <span class="text-sky-400">Inetum España</span>
+        </h2>
+        <p class="text-slate-400 mt-3 text-base">
+          Una progresión sólida de más de 5 años: desde el soporte operativo a pie de trinchera hasta la arquitectura de datos y la consultoría funcional de alta responsabilidad.
+        </p>
+      </div>
+
+      <!-- Selector de Etapas -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8" id="stage-tabs">
+        <button onclick="selectStage('stage-1')" id="tab-stage-1" class="stage-tab text-left p-4 rounded-xl border border-sky-500 bg-slate-850 shadow-lg shadow-black/30 transition-all">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-sky-500 text-slate-950">Etapa 04</span>
+            <span class="text-xs text-slate-400 font-medium">2025 - 2026</span>
+          </div>
+          <h3 class="font-semibold text-sm text-slate-100">Consultoría Funcional e Implantación</h3>
+          <p class="text-xs text-sky-400 mt-1 font-medium">Actualidad | Consultoría Asistencial</p>
+        </button>
+
+        <button onclick="selectStage('stage-2')" id="tab-stage-2" class="stage-tab text-left p-4 rounded-xl border border-slate-800 bg-slate-900/80 hover:border-slate-700 transition-all">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-400">Etapa 03</span>
+            <span class="text-xs text-slate-400 font-medium">2024 - 2025</span>
+          </div>
+          <h3 class="font-semibold text-sm text-slate-100">Arquitectura e Infraestructura Operativa</h3>
+          <p class="text-xs text-sky-400 mt-1 font-medium">Disponibilidad & Rendimiento</p>
+        </button>
+
+        <button onclick="selectStage('stage-3')" id="tab-stage-3" class="stage-tab text-left p-4 rounded-xl border border-slate-800 bg-slate-900/80 hover:border-slate-700 transition-all">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-400">Etapa 02</span>
+            <span class="text-xs text-slate-400 font-medium">2023 - 2025</span>
+          </div>
+          <h3 class="font-semibold text-sm text-slate-100">Especialización Técnica y Bases de Datos</h3>
+          <p class="text-xs text-sky-400 mt-1 font-medium">Referente Técnico BBDD</p>
+        </button>
+
+        <button onclick="selectStage('stage-4')" id="tab-stage-4" class="stage-tab text-left p-4 rounded-xl border border-slate-800 bg-slate-900/80 hover:border-slate-700 transition-all">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-400">Etapa 01</span>
+            <span class="text-xs text-slate-400 font-medium">2021 - 2023</span>
+          </div>
+          <h3 class="font-semibold text-sm text-slate-100">Técnico de Soporte de Aplicaciones</h3>
+          <p class="text-xs text-sky-400 mt-1 font-medium">Cimientos Operativos N2/N3</p>
+        </button>
+      </div>
+
+      <!-- Detalle de la Etapa Seleccionada -->
+      <div id="stage-detail-container" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+        <!-- Renderizado dinámico vía JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- D. ECOSISTEMA SANITARIO & STACK TECNOLÓGICO -->
+  <section id="ecosistema" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold mb-3">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 text-sky-400"></i>
+            <span>Competencias Técnicas & Funcionales</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ecosistema Sanitario & <span class="text-sky-400">Stack Tecnológico</span>
+          </h2>
+          <p class="text-slate-400 mt-2 text-base max-w-2xl">
+            Especialización técnica combinada con dominio de estándares clínicos, motores de integración y gestión de sistemas de misión crítica.
+          </p>
+        </div>
+
+        <!-- Búsqueda en tiempo real -->
+        <div class="relative w-full md:w-72">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input id="skill-search" type="text" placeholder="Buscar habilidad o sistema..." oninput="filterSkills()" class="w-full pl-10 pr-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition-colors">
+        </div>
+      </div>
+
+      <!-- Selector Móvil para Smartphones (Garantiza 100% de visibilidad en cualquier pantalla) -->
+      <div class="sm:hidden mb-4">
+        <div class="flex items-center justify-between mb-2">
+          <label for="mobile-standalone-cat" class="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i data-lucide="filter" class="w-3.5 h-3.5 text-sky-400"></i>
+            <span>Módulo de Especialidad</span>
+          </label>
+          <span id="mobile-selected-label" class="text-xs text-sky-400 font-mono font-medium">Todos los módulos</span>
+        </div>
+        <div class="relative">
+          <select id="mobile-standalone-cat" onchange="setCategory(this.value)" class="w-full appearance-none bg-slate-900 border border-slate-700 text-white py-3 pl-4 pr-10 rounded-xl text-sm font-medium focus:outline-none focus:border-sky-500 shadow-md">
+            <option value="todos">Todos los Módulos (24)</option>
+            <option value="consultoria">Consultoría & Implantación (4)</option>
+            <option value="interoperabilidad">Interoperabilidad & Integración (6)</option>
+            <option value="monitorizacion">Monitorización & Infraestructura (3)</option>
+            <option value="bbdd">Bases de Datos & Análisis (4)</option>
+            <option value="lenguajes">Lenguajes de Programación (4)</option>
+            <option value="competencias">Competencias Clave (3)</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
+            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtros por Categoría (Desktop & Tablet: Con flex-wrap para evitar recortes) -->
+      <div class="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6">
+        <button onclick="setCategory('todos')" id="filter-todos" class="skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-sky-600 text-white shadow-md ring-2 ring-sky-400/40">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>Todos los Módulos</span>
+          <span class="ml-1 text-[11px] font-mono px-1.5 py-0.5 rounded-full bg-sky-700/80 text-sky-100">24</span>
+        </button>
+        <button onclick="setCategory('consultoria')" id="filter-consultoria" class="skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800">
+          <i data-lucide="stethoscope" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Consultoría & Implantación</span>
+          <span class="ml-1 text-[11px] font-mono px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-400">4</span>
+        </button>
+        <button onclick="setCategory('interoperabilidad')" id="filter-interoperabilidad" class="skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800">
+          <i data-lucide="activity" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Interoperabilidad & Integración</span>
+          <span class="ml-1 text-[11px] font-mono px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-400">6</span>
+        </button>
+        <button onclick="setCategory('monitorizacion')" id="filter-monitorizacion" class="skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800">
+          <i data-lucide="server" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Monitorización & Infraestructura</span>
+          <span class="ml-1 text-[11px] font-mono px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-400">3</span>
+        </button>
+        <button onclick="setCategory('bbdd')" id="filter-bbdd" class="skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800">
+          <i data-lucide="database" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Bases de Datos & Análisis</span>
+          <span class="ml-1 text-[11px] font-mono px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-400">4</span>
+        </button>
+        <button onclick="setCategory('lenguajes')" id="filter-lenguajes" class="skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800">
+          <i data-lucide="code-2" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Lenguajes de Programación</span>
+          <span class="ml-1 text-[11px] font-mono px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-400">4</span>
+        </button>
+        <button onclick="setCategory('competencias')" id="filter-competencias" class="skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Competencias Clave</span>
+          <span class="ml-1 text-[11px] font-mono px-1.5 py-0.5 rounded-full bg-slate-800 text-slate-400">3</span>
+        </button>
+      </div>
+
+      <!-- Barra de Estado y Reset de Filtros -->
+      <div class="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 mb-6 pb-3 border-b border-slate-800/80">
+        <div>
+          <span>Mostrando <strong id="skills-count" class="text-white font-semibold">24</strong> de <strong class="text-white font-semibold">24</strong> capacidades</span>
+        </div>
+        <button id="btn-reset-filters" onclick="resetAllFilters()" class="hidden text-sky-400 hover:text-sky-300 flex items-center gap-1 font-medium transition-colors">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+          <span>Restablecer filtros</span>
+        </button>
+      </div>
+
+
+      <!-- Grid de Habilidades Dinámico -->
+      <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Renderizado dinámico vía JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- E. HITOS DESTACADOS / CASOS DE USO -->
+  <section id="hitos" class="py-20 bg-slate-900/60 border-y border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold mb-3">
+          <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Casos de Éxito Asistencial</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Hitos Destacados & <span class="text-sky-400">Casos de Uso</span>
+        </h2>
+        <p class="text-slate-400 mt-3 text-base">
+          Proyectos hospitalarios de alta exigencia donde la precisión técnica y la coordinación humana fueron decisivas.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        
+        <!-- Hito 1: Quirónsalud Zaragoza -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-sky-400 font-mono font-bold text-sm">
+                  01
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider">Caso de Estudio</span>
+                  <h3 class="text-lg font-bold text-white leading-tight mt-0.5">Arranque Hospital Quirónsalud Zaragoza</h3>
+                </div>
+              </div>
+              <p class="text-xs text-slate-400">Puesta en marcha asistencial y soporte in-situ durante el go-live</p>
+              <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 text-xs space-y-1">
+                <div class="flex justify-between text-slate-400">
+                  <span>Entorno:</span>
+                  <span class="text-slate-200 font-medium">Hospital Quirónsalud Zaragoza & Inetum</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>Periodo:</span>
+                  <span class="text-sky-400 font-mono">2025 - 2026</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Casiopea EHR</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Urgencias</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Quirófano</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">El Reto Operativo</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    La apertura del nuevo hospital requería migrar y sincronizar en caliente toda la actividad asistencial hacia Casiopea EHR, garantizando cero pérdidas y asistencia directa en boxes, quirófanos y plantas de hospitalización.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">La Solución Aplicada</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Despliegue operativo in-situ a pie de cama. Acompañamiento clínico directo a médicos y enfermeros, resolución inmediata de bloqueos de admisión y validación de interconexión con los subsistemas departamentales.
+                  </p>
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 space-y-1.5">
+                <div class="font-bold text-slate-300 mb-2">Resultados Validados en Producción:</div>
+                <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Arranque hospitalario completado sin interrupciones en la atención a pacientes.</div>
+                <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Más de 100 profesionales asistenciales acompañados directamente durante la primera semana.</div>
+                <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Estabilización de incidencias críticas en menos de 2 horas de respuesta promedio.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 2: Gobierno Territorial -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-sky-400 font-mono font-bold text-sm">
+                  02
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider">Caso de Estudio</span>
+                  <h3 class="text-lg font-bold text-white leading-tight mt-0.5">Gobierno Territorial de Incidencias</h3>
+                </div>
+              </div>
+              <p class="text-xs text-slate-400">Comités periódicos de priorización y gestión de crisis asistenciales</p>
+              <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 text-xs space-y-1">
+                <div class="flex justify-between text-slate-400">
+                  <span>Entorno:</span>
+                  <span class="text-slate-200 font-medium">Red Territorial de Centros Sanitarios</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>Periodo:</span>
+                  <span class="text-sky-400 font-mono">2024 - 2026</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Gobernanza</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">SLAs Críticos</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">El Reto Operativo</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Brecha de comunicación entre las prioridades del personal facultativo y los ciclos de resolución técnica, provocando retrasos en tickets con impacto en la continuidad de cuidados.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">La Solución Aplicada</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Liderazgo de mesas de trabajo y comités territoriales periódicos. Traducción exacta de necesidades funcionales, análisis de impacto en el paciente y priorización consensuada del backlog.
+                  </p>
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 space-y-1.5">
+                <div class="font-bold text-slate-300 mb-2">Resultados Validados en Producción:</div>
+                <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Reducción del 35% en la recurrencia de incidencias operativas comunes.</div>
+                <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Relación de confianza técnica directa con directores médicos y jefes de servicio.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hito 3: Integración Multidepartamental HL7 -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-lg">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-sky-400 font-mono font-bold text-sm">
+                  03
+                </div>
+                <div>
+                  <span class="text-xs font-mono text-sky-400 font-semibold uppercase tracking-wider">Caso de Estudio</span>
+                  <h3 class="text-lg font-bold text-white leading-tight mt-0.5">Integración Multidepartamental HL7</h3>
+                </div>
+              </div>
+              <p class="text-xs text-slate-400">Interconexión de Casiopea con 6 subsistemas médicos</p>
+              <div class="p-3 rounded-lg bg-slate-950 border border-slate-800 text-xs space-y-1">
+                <div class="flex justify-between text-slate-400">
+                  <span>Entorno:</span>
+                  <span class="text-slate-200 font-medium">Casiopea EHR & Mirth Connect</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                  <span>Periodo:</span>
+                  <span class="text-sky-400 font-mono">2024 - 2026</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">RIS/PACS</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">SGLAC</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">ATLAS</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Portal Paciente</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">El Reto Operativo</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Subsistemas departamentales aislados (Laboratorio, Anatomía Patológica, Oncología, Radiología, Endoscopias) con desajustes en el formato de mensajes y pérdida de trazabilidad de peticiones.
+                  </p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">La Solución Aplicada</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Estandarización y enrutamiento con canales Mirth Connect bajo estándar HL7 v2.x (ADT para pacientes, ORM para peticiones y ORU/MDM para informes validados), cerrando el círculo asistencial digital.
+                  </p>
+                </div>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-200 space-y-1.5">
+                <div class="font-bold text-slate-300 mb-2">Resultados Validados en Producción:</div>
+                <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Sincronización bidireccional en tiempo real entre Casiopea y los 6 subsistemas.</div>
+                <div class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✓</span> Entrega automatizada de analíticas e imágenes diagnósticas al Portal del Paciente.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DEMO / SIMULADOR DE INTEROPERABILIDAD HL7 & MIRTH CONNECT -->
+  <section id="interoperabilidad" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold mb-3">
+          <i data-lucide="activity" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Demostración de Interoperabilidad Sanitaria</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Flujo de Mensajería <span class="text-sky-400">HL7 & Mirth Connect</span>
+        </h2>
+        <p class="text-slate-400 mt-3 text-base">
+          Demostración interactiva de cómo orquesto los flujos de mensajería estándar entre la Historia Clínica Casiopea y los subsistemas hospitalarios.
+        </p>
+      </div>
+
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+        
+        <!-- Toolbar -->
+        <div class="p-4 bg-slate-950 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Evento HL7:</span>
+            <div class="flex items-center gap-1.5">
+              <button onclick="setHl7Event('ADT')" id="btn-hl7-adt" class="hl7-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-sky-600 text-white shadow-sm">ADT</button>
+              <button onclick="setHl7Event('ORM')" id="btn-hl7-orm" class="hl7-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">ORM</button>
+              <button onclick="setHl7Event('ORU')" id="btn-hl7-oru" class="hl7-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">ORU</button>
+              <button onclick="setHl7Event('MDM')" id="btn-hl7-mdm" class="hl7-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800">MDM</button>
+            </div>
+          </div>
+
+          <button onclick="runSimulation()" id="btn-sim-run" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs shadow transition-all">
+            <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+            <span id="btn-sim-text">Ejecutar Simulación de Flujo</span>
+          </button>
+        </div>
+
+        <!-- Architecture Flow Nodes -->
+        <div class="p-6 sm:p-8 bg-slate-950/70 border-b border-slate-800">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div id="sim-node-1" class="p-5 rounded-xl border border-slate-800 bg-slate-900/60 text-center transition-all">
+              <div class="w-10 h-10 mx-auto rounded-lg bg-slate-800 text-sky-400 flex items-center justify-center mb-2">
+                <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-semibold text-sm text-white">Casiopea (EHR Core)</h4>
+              <p class="text-xs text-slate-400 mt-1">Estación Asistencial / Emisor</p>
+              <div class="mt-3">
+                <span id="sim-badge-1" class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-500">En Espera</span>
+              </div>
+            </div>
+
+            <div id="sim-node-2" class="p-5 rounded-xl border border-slate-800 bg-slate-900/60 text-center transition-all">
+              <div class="w-10 h-10 mx-auto rounded-lg bg-slate-800 text-sky-400 flex items-center justify-center mb-2">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-semibold text-sm text-white">Mirth Connect ESB</h4>
+              <p class="text-xs text-slate-400 mt-1">Transformador & Filtros HL7</p>
+              <div class="mt-3">
+                <span id="sim-badge-2" class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-500">En Espera</span>
+              </div>
+            </div>
+
+            <div id="sim-node-3" class="p-5 rounded-xl border border-slate-800 bg-slate-900/60 text-center transition-all">
+              <div class="w-10 h-10 mx-auto rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center mb-2">
+                <i data-lucide="server" class="w-5 h-5"></i>
+              </div>
+              <h4 id="dest-node-title" class="font-semibold text-sm text-white">Subsistema Destino</h4>
+              <p id="dest-node-subtitle" class="text-xs text-slate-400 mt-1">RIS, ATLAS, SGLAC, Portal</p>
+              <div class="mt-3">
+                <span id="sim-badge-3" class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-500">En Espera</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Raw Inspector -->
+        <div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-7">
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
+              <span id="hl7-inspector-title">Mensaje HL7 v2.5 (ADT)</span>
+              <button onclick="copyHl7Raw()" class="flex items-center gap-1 hover:text-white transition-colors">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copiar Trama</span>
+              </button>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-sky-300 overflow-x-auto leading-relaxed">
+              <pre id="hl7-raw-code"></pre>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 space-y-4">
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+              <h4 id="hl7-info-title" class="text-sm font-bold text-white mb-1">Ingreso Hospitalario (ADT^A01)</h4>
+              <p id="hl7-info-desc" class="text-xs text-slate-400 mb-3"></p>
+              
+              <div class="text-xs space-y-1.5">
+                <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider block">Análisis Funcional:</span>
+                <div id="hl7-info-bullets" class="space-y-1 text-slate-300"></div>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">
+              <span class="font-semibold text-slate-100">Interlocución Funcional:</span> Parametrización de canales, normalización de terminologías clínicas (LOINC / CIE-10) y validación de interoperabilidad end-to-end.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- F. FORMACIÓN ACADÉMICA -->
+  <section id="educacion" class="py-20 bg-slate-900/60 border-y border-slate-800 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold mb-3">
+          <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Base Formativa</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Formación <span class="text-sky-400">Académica</span>
+        </h2>
+        <p class="text-slate-400 mt-3 text-base">
+          Fundamentos sólidos en ingeniería del software, desarrollo multiplataforma y orientación científica.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-sky-400">
+                <i data-lucide="code-2" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-mono text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">2018 – 2020</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+            <p class="text-sm text-sky-400 font-medium mt-1">Colegio Santa María de los Apóstoles</p>
+            <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+              Desarrollo integral de software, modelado de bases de datos relacionales, programación concurrente y aplicaciones cliente-servidor.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">Java</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">SQL Server</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">DAM</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-sky-400">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-mono text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">2017 – 2018</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Ingeniería del Software</h3>
+            <p class="text-sm text-sky-400 font-medium mt-1">Universidad Politécnica de Madrid (UPM)</p>
+            <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+              Formación universitaria inicial en fundamentos matemáticos, algoritmia avanzada en C++, estructura de computadores y metodología formal de ingeniería.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">C++</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">Algoritmia</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">UPM</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-sky-400">
+                <i data-lucide="stethoscope" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-mono text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">2014 – 2017</span>
+            </div>
+            <h3 class="text-base font-bold text-white">Bachillerato (Ciencias y Salud)</h3>
+            <p class="text-sm text-sky-400 font-medium mt-1">Colegio Vedruna de Carabanchel</p>
+            <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+              Orientación científico-sanitaria que aportó una temprana vocación e intuición por la terminología de salud, biología celular y ciencias aplicadas.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">Ciencias</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">Salud</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400">Biología</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- G. CONTACTO PROFESIONAL DIRECTO (Sin Formulario) -->
+  <section id="contacto" class="py-20 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-semibold mb-3">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Conexión Directa</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Información de <span class="text-sky-400">Contacto Profesional</span>
+        </h2>
+        <p class="text-slate-400 mt-3 text-base">
+          A disposición inmediata para proyectos de consultoría funcional, arranques hospitalarios e interoperabilidad de sistemas de salud.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          
+          <!-- Teléfono & WhatsApp -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="p-3 rounded-xl bg-slate-800 border border-slate-700 text-sky-400">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
+                  Llamadas & WhatsApp
+                </span>
+              </div>
+              <h3 class="text-base font-semibold text-white">Teléfono Móvil</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Contacto telefónico directo o mensajería rápida.</p>
+              <p class="text-xl font-bold text-white font-mono">+34 665 79 71 89</p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2">
+              <a href="tel:+34665797189" class="flex-1 py-2.5 px-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-medium text-xs text-center transition-colors">
+                Llamar
+              </a>
+              <a href="https://wa.me/34665797189" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white font-medium text-xs text-center transition-colors">
+                WhatsApp
+              </a>
+              <button onclick="copyToClipboard('+34 665 79 71 89', 'Teléfono copiado: +34 665 79 71 89')" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors" title="Copiar número">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Correo Electrónico -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="p-3 rounded-xl bg-slate-800 border border-slate-700 text-sky-400">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xs font-mono text-sky-400 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-800/40">
+                  Correo Prioritario
+                </span>
+              </div>
+              <h3 class="text-base font-semibold text-white">Correo Electrónico</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Para propuestas formales, especificaciones o reuniones.</p>
+              <p class="text-base sm:text-lg font-bold text-white break-all">junior_98_cortez@outlook.es</p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2">
+              <a href="mailto:junior_98_cortez@outlook.es?subject=Contacto%20Profesional%20-%20Sistemas%20Sanitarios" class="flex-1 py-2.5 px-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-medium text-xs text-center transition-colors">
+                Redactar Correo
+              </a>
+              <button onclick="copyToClipboard('junior_98_cortez@outlook.es', 'Email copiado: junior_98_cortez@outlook.es')" class="p-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors" title="Copiar correo">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- LinkedIn Oficial -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="p-3 rounded-xl bg-slate-800 border border-slate-700 text-sky-400">
+                  <i data-lucide="linkedin" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xs font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
+                  Red Profesional
+                </span>
+              </div>
+              <h3 class="text-base font-semibold text-white">LinkedIn</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-3">Conexión profesional, trayectoria completa y recomendaciones.</p>
+              <p class="text-sm font-medium text-slate-200">junior-alexander-cortez-garcia</p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800">
+              <a href="https://www.linkedin.com/in/junior-alexander-cortez-garcia-b8726a150" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs flex items-center justify-center gap-2 border border-slate-700 transition-colors">
+                <span>Abrir Perfil en LinkedIn</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Ubicación y vCard -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="p-3 rounded-xl bg-slate-800 border border-slate-700 text-sky-400">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
+                  Madrid, España
+                </span>
+              </div>
+              <h3 class="text-base font-semibold text-white">Disponibilidad Geográfica</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-3">
+                Residencia en Madrid. Disponibilidad para desplazamientos a centros hospitalarios e implantaciones in-situ.
+              </p>
+              <p class="text-sm font-medium text-slate-200">Modalidad Presencial / Híbrida</p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800">
+              <button onclick="downloadVCard()" class="w-full py-2.5 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs flex items-center justify-center gap-2 border border-slate-700 transition-colors">
+                <i data-lucide="download" class="w-3.5 h-3.5 text-sky-400"></i>
+                <span>Guardar Tarjeta de Contacto (.vcf)</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 bg-slate-950 border-t border-slate-900 relative z-10 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-200 font-bold text-xs">
+          JC
+        </div>
+        <div>
+          <p class="font-semibold text-slate-200">Junior A. Cortez García</p>
+          <p class="text-[11px] text-slate-500">Consultor Funcional de Sistemas Sanitarios & HL7</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+        <a href="#evolucion" class="hover:text-white transition-colors">Evolución</a>
+        <a href="#ecosistema" class="hover:text-white transition-colors">Ecosistema</a>
+        <a href="#hitos" class="hover:text-white transition-colors">Hitos</a>
+        <a href="https://www.linkedin.com/in/junior-alexander-cortez-garcia-b8726a150" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline flex items-center gap-1">
+          <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <p class="text-slate-500 text-center sm:text-right">
+        © 2026 Junior A. Cortez García. Todos los derechos reservados.
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // Inicializar Iconos Lucide
+    lucide.createIcons();
+
+    // Control Menú Móvil
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+    }
+
+    // Efecto de Tipeado Dinámico (Typewriter)
+    const typewriterPhrases = [
+      'Consultor Funcional de Sistemas Sanitarios',
+      'Especialista en Interoperabilidad (HL7 & Mirth ESB)',
+      'Ex-Referente de BBDD & Infraestructura (SQL Server & Dynatrace)',
+      'Integrador Hospitalario Casiopea (EHR) & Departamentales'
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typeSpeed = 75;
+    const typeEl = document.getElementById('typewriter');
+
+    function tickTypewriter() {
+      const currentPhrase = typewriterPhrases[phraseIndex];
+      if (!isDeleting) {
+        typeEl.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(tickTypewriter, 2000);
+          return;
+        }
+        setTimeout(tickTypewriter, typeSpeed);
+      } else {
+        typeEl.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % typewriterPhrases.length;
+          setTimeout(tickTypewriter, 350);
+          return;
+        }
+        setTimeout(tickTypewriter, 35);
+      }
+    }
+    tickTypewriter();
+
+    // Datos de la Línea de Tiempo (Inetum España)
+    const timelineStages = {
+      'stage-1': {
+        role: 'Consultoría Funcional e Implantación',
+        company: 'Inetum España',
+        period: '2025 - 2026',
+        badge: 'Actualidad | Consultoría Asistencial',
+        summary: 'Liderazgo funcional y técnico en campo durante despliegues asistenciales críticos e interoperabilidad sanitaria con el Hospital Quirónsalud Zaragoza.',
+        responsibilities: [
+          'Participación activa en el arranque de campo e implantación in-situ en el nuevo Hospital Quirónsalud Zaragoza, asegurando la continuidad asistencial durante el go-live.',
+          'Conducción de reuniones territoriales periódicas con el cliente sanitario para el seguimiento operativo, análisis de necesidades y priorización de tickets de impacto crítico.',
+          'Análisis funcional de flujos de interoperabilidad (HL7 v2.x, Mirth ESB) conectando la Historia Clínica Electrónica Casiopea (EHR) con 6 subsistemas clave: RIS/PACS, ATLAS, SGLAC, ENDOBASE, ONCOFARM y PORTAL DEL PACIENTE.',
+          'Interlocución directa y resolución funcional entre jefaturas de servicio médico, dirección asistencial y equipos de ingeniería de software.'
+        ],
+        techStack: ['Casiopea EHR', 'HL7 v2.5', 'Mirth Connect ESB', 'RIS/PACS', 'SGLAC', 'ATLAS', 'Oncofarm', 'Portal Paciente'],
+        impactMetric: '100% de subsistemas integrados y estabilizados en Quirónsalud Zaragoza'
+      },
+      'stage-2': {
+        role: 'Arquitectura e Infraestructura Operativa',
+        company: 'Inetum España',
+        period: '2024 - 2025',
+        badge: 'Disponibilidad & Rendimiento',
+        summary: 'Supervisión y garantía de la alta disponibilidad, rendimiento y fiabilidad operativa de los sistemas hospitalarios en producción.',
+        responsibilities: [
+          'Monitorización proactiva con Dynatrace APM para supervisar en tiempo real la disponibilidad, transaccionalidad y tiempos de respuesta en entornos críticos hospitalarios 24/7.',
+          'Programación, supervisión y optimización de tareas de fondo (background jobs) y procesos batch mediante Quartz Scheduler.',
+          'Gestión e inspección de interacciones del sistema sanitario vía Web Services (arquitecturas REST y SOAP), garantizando consistencia de datos entre aplicaciones.',
+          'Detección y resolución preventiva de cuellos de botella en picos de demanda asistencial (urgencias, consultas externas, laboratorio).'
+        ],
+        techStack: ['Dynatrace APM', 'Quartz Scheduler', 'Web Services REST/SOAP', 'Auditoría de Logs', 'Alta Disponibilidad'],
+        impactMetric: '99.9% de disponibilidad operativa en entornos de producción hospitalaria'
+      },
+      'stage-3': {
+        role: 'Especialización Técnica y Bases de Datos',
+        company: 'Inetum España',
+        period: '2023 - 2025',
+        badge: 'Referente Técnico BBDD',
+        summary: 'Referente del equipo en arquitectura de datos relacionales, rendimiento de consultas complejas y soporte a la toma de decisiones clínicas.',
+        responsibilities: [
+          'Designado referente técnico del equipo en bases de datos Microsoft SQL Server, guiando mejores prácticas de desarrollo.',
+          'Diseño y modelado de esquemas relacionales para módulos clínicos y administrativos.',
+          'Optimización exhaustiva (Query Tuning) de consultas T-SQL complejas, índices agrupados/no agrupados y planes de ejecución.',
+          'Desarrollo de Procedimientos Almacenados (Stored Procedures) y funciones avanzadas para procesamiento masivo de datos clínicos.'
+        ],
+        techStack: ['Microsoft SQL Server', 'T-SQL Tuning', 'Stored Procedures', 'Execution Plans', 'Power Query'],
+        impactMetric: '+40% de mejora en tiempos de respuesta en consultas e informes masivos'
+      },
+      'stage-4': {
+        role: 'Técnico de Soporte de Aplicaciones',
+        company: 'Inetum España',
+        period: '2021 - 2023',
+        badge: 'Cimientos Operativos N2/N3',
+        summary: 'Resolución de incidencias asistenciales, atención directa al usuario clínico y control de calidad en despliegues.',
+        responsibilities: [
+          'Soporte directo de Nivel 2 y 3 a usuarios finales del ámbito sanitario (facultativos, personal de enfermería, admisión y administración).',
+          'Investigación minuciosa de causa raíz (RCA) y corrección de incidencias funcionales y operativas en los entornos de producción.',
+          'Ejecución rigurosa de pruebas de validación de software (UAT) y homologación previa a despliegues y pases a producción.',
+          'Documentación técnica de incidencias conocidas y elaboración de procedimientos de resolución rápida.'
+        ],
+        techStack: ['Soporte N2/N3', 'Validación de Software (QA/UAT)', 'Análisis Causa Raíz', 'Gestión de Incidencias'],
+        impactMetric: 'Reducción sostenida del backlog y aumento en la satisfacción del usuario clínico'
+      }
+    };
+
+    function selectStage(stageId) {
+      document.querySelectorAll('.stage-tab').forEach(tab => {
+        tab.classList.remove('border-sky-500', 'bg-slate-850', 'shadow-lg');
+        tab.classList.add('border-slate-800', 'bg-slate-900/80');
+        const badge = tab.querySelector('.font-mono');
+        if (badge) {
+          badge.className = 'text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-400';
+        }
+      });
+
+      const activeTab = document.getElementById('tab-' + stageId);
+      if (activeTab) {
+        activeTab.classList.remove('border-slate-800', 'bg-slate-900/80');
+        activeTab.classList.add('border-sky-500', 'bg-slate-850', 'shadow-lg');
+        const activeBadge = activeTab.querySelector('.font-mono');
+        if (activeBadge) {
+          activeBadge.className = 'text-xs font-mono font-bold px-2 py-0.5 rounded bg-sky-500 text-slate-950';
+        }
+      }
+
+      const stage = timelineStages[stageId];
+      const container = document.getElementById('stage-detail-container');
+      container.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-8 space-y-5">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold">
+                ${stage.company} • ${stage.period}
+              </span>
+              <span class="text-xs text-emerald-400 font-mono flex items-center gap-1">
+                ✓ ${stage.badge}
+              </span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">${stage.role}</h3>
+            <p class="text-slate-300 text-base leading-relaxed bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+              ${stage.summary}
+            </p>
+            <div>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                Responsabilidades Clave y Actuaciones de Campo:
+              </h4>
+              <ul class="space-y-3">
+                ${stage.responsibilities.map(r => `
+                  <li class="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
+                    <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-sky-400 mt-2"></span>
+                    <span>${r}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+          </div>
+          <div class="lg:col-span-4 space-y-6">
+            <div class="p-5 rounded-xl bg-slate-950 border border-slate-800">
+              <div class="flex items-center gap-2 text-sky-400 text-xs font-bold uppercase tracking-wider mb-2">
+                <span>★ Impacto Aportado</span>
+              </div>
+              <p class="text-white font-medium text-sm leading-snug">${stage.impactMetric}</p>
+            </div>
+            <div class="p-5 rounded-xl bg-slate-950 border border-slate-800">
+              <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Tecnologías & Entornos Clave:</h5>
+              <div class="flex flex-wrap gap-2">
+                ${stage.techStack.map(t => `<span class="px-2.5 py-1 rounded-md bg-slate-900 text-slate-300 border border-slate-700/80 text-xs font-mono font-medium">${t}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    selectStage('stage-1');
+
+    // Catálogo de Habilidades y Stack
+    const allSkills = [
+      { name: 'Implantación Clínica In-situ', cat: 'consultoria', level: 'Avanzado', desc: 'Acompañamiento a pie de cama y en servicios hospitalarios (Urgencias, Quirófano, Consultas) durante el go-live.', tags: ['Hospitales', 'Go-Live'], icon: 'stethoscope' },
+      { name: 'Arranques Hospitalarios', cat: 'consultoria', level: 'Especialista', desc: 'Metodología integral de puesta en marcha asistencial probada con éxito en el Hospital Quirónsalud Zaragoza.', tags: ['Quirónsalud Zaragoza', 'Estabilización'], icon: 'building-2' },
+      { name: 'Comités Territoriales con Cliente', cat: 'consultoria', level: 'Avanzado', desc: 'Conducción de reuniones periódicas ejecutivas y de gobernanza con dirección médica y responsables IT.', tags: ['Gobernanza', 'Priorización'], icon: 'users' },
+      { name: 'Atención a Tickets Críticos', cat: 'consultoria', level: 'Experto', desc: 'Gestión ágil de incidencias de severidad 1 que puedan impactar la atención médica o bloqueo de pacientes.', tags: ['SLA Crítico', 'Resolución'], icon: 'shield-check' },
+      { name: 'HL7 (v2.x / v2.5)', cat: 'interoperabilidad', level: 'Especialista', desc: 'Estandarización y mapeo de mensajería sanitaria: ADT (Admisiones), ORM (Peticiones), ORU (Resultados) y MDM.', tags: ['HL7 v2.x', 'Mensajería'], icon: 'activity' },
+      { name: 'Mirth Connect (NextGen Connect)', cat: 'interoperabilidad', level: 'Avanzado', desc: 'Orquestación de canales, transformadores JavaScript, filtros y enrutamiento ESB entre sistemas heterogéneos.', tags: ['Mirth ESB', 'Canales'], icon: 'layers' },
+      { name: 'Casiopea (EHR / Historia Clínica)', cat: 'interoperabilidad', level: 'Avanzado', desc: 'Sistema central de Historia Clínica Electrónica hospitalaria y coordinación de sus flujos departamentales.', tags: ['EHR', 'Historia Clínica'], icon: 'heart-pulse' },
+      { name: 'Integraciones Departamentales', cat: 'interoperabilidad', level: 'Especialista', desc: 'Interconexión con RIS/PACS, ATLAS (AP), SGLAC (Laboratorio), ENDOBASE, ONCOFARM y Portal del Paciente.', tags: ['RIS/PACS', 'SGLAC', 'ATLAS'], icon: 'server' },
+      { name: 'Web Services (REST & SOAP)', cat: 'interoperabilidad', level: 'Avanzado', desc: 'Consumo y supervisión de APIs hospitalarias, contratos WSDL y servicios REST JSON/XML para intercambio de datos.', tags: ['REST', 'SOAP WSDL'], icon: 'code-2' },
+      { name: 'Dynatrace APM', cat: 'monitorizacion', level: 'Referente Técnico', desc: 'Supervisión en tiempo real de transacciones puras (PurePaths), detección de fallos de red y carga de servidores.', tags: ['APM', 'PurePaths'], icon: 'cpu' },
+      { name: 'Quartz Scheduler', cat: 'monitorizacion', level: 'Avanzado', desc: 'Configuración, calendarización y depuración de tareas en background para procesamiento de colas y datos nocturnos.', tags: ['Background Jobs', 'Cron'], icon: 'calendar' },
+      { name: 'Auditoría de Logs e Incidencias', cat: 'monitorizacion', level: 'Avanzado', desc: 'Trazabilidad de eventos de sistema, análisis forense de fallos y auditoría de sincronizaciones erróneas.', tags: ['Logs', 'Trazabilidad'], icon: 'terminal' },
+      { name: 'Microsoft SQL Server', cat: 'bbdd', level: 'Referente Técnico', desc: 'Administración, modelado relacional, mantenimiento y resolución de bloqueos en entornos de alta concurrencia.', tags: ['SQL Server', 'BBDD'], icon: 'database' },
+      { name: 'T-SQL Query Tuning', cat: 'bbdd', level: 'Especialista', desc: 'Optimización de planes de ejecución, refactorización de consultas pesadas y creación de índices eficientes.', tags: ['Query Tuning', 'Índices'], icon: 'file-code' },
+      { name: 'Procedimientos Almacenados (Stored Procs)', cat: 'bbdd', level: 'Avanzado', desc: 'Desarrollo de lógica de negocio transaccional robusta, triggers y scripts automatizados de mantenimiento.', tags: ['Stored Procs', 'Triggers'], icon: 'file-code' },
+      { name: 'Power Query & Reportes', cat: 'bbdd', level: 'Competente', desc: 'Extracción, transformación y carga (ETL) de datos sanitarios para la elaboración de métricas y cuadros de mando.', tags: ['ETL', 'BI'], icon: 'layers' },
+      { name: 'Python', cat: 'lenguajes', level: 'Competente', desc: 'Scripting de utilidades, análisis de datos y parsing automatizado de ficheros sanitarios.', tags: ['Scripting', 'Data'], icon: 'code-2' },
+      { name: 'Java', cat: 'lenguajes', level: 'Competente', desc: 'Desarrollo de componentes backend, extensiones y soporte en middlewares de integración.', tags: ['Backend', 'Servicios'], icon: 'code-2' },
+      { name: 'C++', cat: 'lenguajes', level: 'Formación Sólida', desc: 'Comprensión profunda de estructuras de memoria, algoritmos y fundamentos de sistemas de alto rendimiento.', tags: ['Algoritmia', 'Memoria'], icon: 'code-2' },
+      { name: 'JavaScript / HTML / CSS', cat: 'lenguajes', level: 'Avanzado', desc: 'Transformadores personalizados en Mirth Connect, scripts web y desarrollo de interfaces modernas.', tags: ['Mirth Transformers', 'DOM'], icon: 'code-2' },
+      { name: 'Resolución de Incidencias & Gestión de Crisis', cat: 'competencias', level: 'Experto', desc: 'Capacidad demostrada para mantener la calma y ejecutar planes de contención bajo alta presión hospitalaria.', tags: ['Crisis', 'Resiliencia'], icon: 'shield-check' },
+      { name: 'Traducción Clínico-Técnica', cat: 'competencias', level: 'Especialista', desc: 'Habilidad diferencial para comprender el vocabulario médico y convertirlo en especificaciones de software exactas.', tags: ['Empatía', 'Análisis'], icon: 'heart-pulse' },
+      { name: 'Trabajo en Equipo & Liderazgo Transversal', cat: 'competencias', level: 'Avanzado', desc: 'Coordinación fluida entre equipos multidisciplinares: soporte, sistemas, desarrollo y clientes.', tags: ['Liderazgo', 'Visión 360°'], icon: 'users' }
+    ];
+
+    let currentCategory = 'todos';
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.skill-filter').forEach(btn => {
+        btn.className = 'skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800';
+      });
+      const activeBtn = document.getElementById('filter-' + cat);
+      if (activeBtn) {
+        activeBtn.className = 'skill-filter px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium flex items-center gap-2 bg-sky-600 text-white shadow-md ring-2 ring-sky-400/40';
+      }
+
+      // Sync mobile select
+      const mobileSelect = document.getElementById('mobile-standalone-cat');
+      if (mobileSelect && mobileSelect.value !== cat) {
+        mobileSelect.value = cat;
+      }
+      const mobileLabel = document.getElementById('mobile-selected-label');
+      if (mobileLabel) {
+        mobileLabel.textContent = cat === 'todos' ? 'Todos los módulos' : cat;
+      }
+
+      filterSkills();
+    }
+
+    function resetAllFilters() {
+      document.getElementById('skill-search').value = '';
+      setCategory('todos');
+    }
+
+    function filterSkills() {
+      const q = document.getElementById('skill-search').value.toLowerCase();
+      const grid = document.getElementById('skills-grid');
+      const resetBtn = document.getElementById('btn-reset-filters');
+      const countEl = document.getElementById('skills-count');
+
+      if (resetBtn) {
+        if (currentCategory !== 'todos' || q.trim() !== '') {
+          resetBtn.classList.remove('hidden');
+        } else {
+          resetBtn.classList.add('hidden');
+        }
+      }
+
+      const filtered = allSkills.filter(s => {
+        const matchesCat = currentCategory === 'todos' || s.cat === currentCategory;
+        const matchesSearch = s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q) || s.tags.some(t => t.toLowerCase().includes(q));
+        return matchesCat && matchesSearch;
+      });
+
+      if (countEl) countEl.textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-500 text-sm">
+            <p class="text-slate-400">No se encontraron habilidades para esta búsqueda.</p>
+            <button onclick="resetAllFilters()" class="mt-3 px-3 py-1.5 rounded-lg bg-sky-600 text-white text-xs font-medium">Ver todas las capacidades</button>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(s => `
+        <div class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl p-5 shadow-md transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800 text-sky-400">
+                <i data-lucide="${s.icon}" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 font-medium">${s.level}</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-sky-300 transition-colors">${s.name}</h3>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">${s.desc}</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex flex-wrap gap-1.5">
+            ${s.tags.map(t => `<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-950 text-slate-400 border border-slate-800">#${t}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+    filterSkills();
+
+    // User Personal Photo Initialization & Upload
+    function initAvatar() {
+      const saved = localStorage.getItem('junior_cortez_avatar');
+      if (saved) {
+        const img = document.getElementById('main-avatar-img');
+        if (img) img.src = saved;
+        const btnLabel = document.getElementById('avatar-btn-label');
+        if (btnLabel) btnLabel.textContent = 'Foto Personal';
+        const bar = document.getElementById('photo-helper-bar');
+        if (bar) bar.style.display = 'none';
+      }
+
+      // Drag and drop setup for avatar
+      const dropzone = document.getElementById('portrait-dropzone');
+      if (dropzone) {
+        dropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropzone.classList.add('border-sky-400', 'ring-4', 'ring-sky-500/20');
+        });
+        dropzone.addEventListener('dragleave', () => {
+          dropzone.classList.remove('border-sky-400', 'ring-4', 'ring-sky-500/20');
+        });
+        dropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropzone.classList.remove('border-sky-400', 'ring-4', 'ring-sky-500/20');
+          if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handlePhotoUpload(e.dataTransfer.files[0]);
+          }
+        });
+      }
+    }
+    initAvatar();
+
+    function handlePhotoUpload(file) {
+      if (!file || !file.type.startsWith('image/')) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const dataUrl = e.target.result;
+        const img = document.getElementById('main-avatar-img');
+        if (img) img.src = dataUrl;
+        try {
+          localStorage.setItem('junior_cortez_avatar', dataUrl);
+        } catch (err) {
+          console.warn('LocalStorage error:', err);
+        }
+        const btnLabel = document.getElementById('avatar-btn-label');
+        if (btnLabel) btnLabel.textContent = 'Foto Personal';
+        const bar = document.getElementById('photo-helper-bar');
+        if (bar) bar.style.display = 'none';
+
+        fetch('/api/upload-avatar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image: dataUrl })
+        }).catch(() => {});
+
+        copyToClipboard('Foto', 'Foto personal original aplicada y guardada con éxito');
+      };
+      reader.readAsDataURL(file);
+    }
+
+
+    // Datos del Simulador HL7 v2.5
+    const hl7Data = {
+      ADT: {
+        title: 'Ingreso Hospitalario (ADT^A01)',
+        desc: 'Notifica el ingreso de un paciente en planta o urgencias para sincronizar sus datos demográficos en todos los subsistemas.',
+        destTitle: 'Subsistema Destino',
+        destSub: 'RIS, ATLAS, SGLAC, Portal',
+        raw: `MSH|^~\\&|CASIOPEA|HOSP_ZARAGOZA|MIRTH_ESB|HOSP_ROUTER|20261017093000||ADT^A01|MSG00984712|P|2.5\nEVN|A01|20261017093000\nPID|1||NHC-849201^^^HOSP_ZGZ^MR||GARCIA^SANCHEZ^CARMEN||19840512|F|||C/ SAN IGNACIO 14^^ZARAGOZA^50008||+34611223344\nPV1|1|I|URG^BOX-04^01|E|||10492^MARTINEZ^ALEJANDRO^^^DR|||||||||||V98214^^^VISIT|||||||||||||||||||HOSP_ZARAGOZA|||20261017092800`,
+        bullets: [
+          'MSH: Mensaje emitido por Casiopea hacia el bus Mirth con versión estándar HL7 2.5',
+          'PID: Datos demográficos de la paciente (NHC, Nombre, Fecha Nacimiento, Dirección)',
+          'PV1: Ubicación asistencial actual (Urgencias Box 04, Médico asignado)'
+        ]
+      },
+      ORM: {
+        title: 'Petición Analítica a Laboratorio (ORM^O01)',
+        desc: 'Envío de una orden de analítica de sangre y coagulación desde la estación clínica al sistema de laboratorio.',
+        destTitle: 'SGLAC (Laboratorio Clínico)',
+        destSub: 'Módulo de Recepción de Órdenes',
+        raw: `MSH|^~\\&|CASIOPEA|HOSP_ZARAGOZA|SGLAC_LAB|MIRTH_ESB|20261017101522||ORM^O01|ORD992384|P|2.5\nPID|1||NHC-849201^^^HOSP_ZGZ^MR||GARCIA^SANCHEZ^CARMEN||19840512|F\nPV1|1|I|URG^BOX-04^01\nORC|NW|ORD-2026-8812|||||1^URGENTE||20261017101500|10492^MARTINEZ^ALEJANDRO\nOBR|1|ORD-2026-8812||HEM^HEMOGRAMA COMPLETO^LAB|||20261017102000|||||||||10492^MARTINEZ^ALEJANDRO`,
+        bullets: [
+          'ORC: Orden tipo NW (Nueva Petición) con prioridad Urgente',
+          'OBR: Petición del estudio HEM (Hemograma Completo y Coagulación)',
+          'Enrutado por Mirth Connect aplicando validación de formato antes de entrega en SGLAC'
+        ]
+      },
+      ORU: {
+        title: 'Resultados Validados de Laboratorio (ORU^R01)',
+        desc: 'El laboratorio emite los valores numéricos y rangos de normalidad validados por el analista clínico.',
+        destTitle: 'Casiopea EHR & Portal Paciente',
+        destSub: 'Historia Clínica & Resultados Digitales',
+        raw: `MSH|^~\\&|SGLAC_LAB|BIOQUIMICA|CASIOPEA|MIRTH_ESB|20261017114510||ORU^R01|RES883201|P|2.5\nPID|1||NHC-849201^^^HOSP_ZGZ^MR||GARCIA^SANCHEZ^CARMEN||19840512|F\nOBR|1|ORD-2026-8812||HEM^HEMOGRAMA COMPLETO|||20261017114200|||||||||FACULTATIVO_FIRMA\nOBX|1|NM|GLU^GLUCOSA EN SUERO^LN||104|mg/dL|70-110|N|||F|||20261017114000\nOBX|2|NM|HB^HEMOGLOBINA^LN||13.8|g/dL|12.0-15.5|N|||F|||20261017114000\nOBX|3|NM|LEUC^LEUCOCITOS^LN||7.4|10^3/uL|4.0-10.0|N|||F|||20261017114000`,
+        bullets: [
+          'OBX 1: Glucosa 104 mg/dL (Rango 70-110, Estado Normal N)',
+          'OBX 2: Hemoglobina 13.8 g/dL (Normal)',
+          'OBX 3: Leucocitos 7.4 (Normal), Estado F (Resultado Final Firmado)'
+        ]
+      },
+      MDM: {
+        title: 'Informe Radiológico Firmado (MDM^T02)',
+        desc: 'Informe médico estructurado o documento clínico validado por el servicio de Radiodiagnóstico.',
+        destTitle: 'RIS/PACS a Casiopea',
+        destSub: 'Radiología e Imagen Médica',
+        raw: `MSH|^~\\&|RIS_PACS|RADIODIAGNOSTICO|CASIOPEA|MIRTH_ESB|20261017122045||MDM^T02|DOC77421|P|2.5\nPID|1||NHC-849201^^^HOSP_ZGZ^MR||GARCIA^SANCHEZ^CARMEN||19840512|F\nPV1|1|I|URG^BOX-04^01\nTXA|1|CN|TX|20261017121500|||||RAD-99120^GONZALEZ^MIGUEL||||||||||DOC-FINAL\nOBX|1|TX|INFORME_RX^RX TORAX PA Y LATERAL||SIN HALLAZGOS PATOLOGICOS AGUDOS. INDICE CARDIOTORACICO NORMAL. SENOS COSTOFRENICOS LIBRES.`,
+        bullets: [
+          'TXA: Metadatos del documento médico (Fecha de firma, Autor radiólogo)',
+          'OBX: Texto estructurado del informe para visualización en la Historia Clínica'
+        ]
+      }
+    };
+
+    let currentHl7 = 'ADT';
+    function setHl7Event(type) {
+      currentHl7 = type;
+      document.querySelectorAll('.hl7-btn').forEach(b => {
+        b.className = 'hl7-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-slate-900 text-slate-300 hover:bg-slate-800 border border-slate-800';
+      });
+      const act = document.getElementById('btn-hl7-' + type.toLowerCase());
+      if (act) act.className = 'hl7-btn px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-sky-600 text-white shadow-sm';
+
+      const data = hl7Data[type];
+      document.getElementById('hl7-inspector-title').textContent = `Mensaje HL7 v2.5 (${type})`;
+      document.getElementById('hl7-raw-code').textContent = data.raw;
+      document.getElementById('hl7-info-title').textContent = data.title;
+      document.getElementById('hl7-info-desc').textContent = data.desc;
+      document.getElementById('dest-node-title').textContent = data.destTitle;
+      document.getElementById('dest-node-subtitle').textContent = data.destSub;
+      document.getElementById('hl7-info-bullets').innerHTML = data.bullets.map(b => `<div class="flex items-start gap-2"><span class="text-sky-400 font-bold">›</span><span>${b}</span></div>`).join('');
+
+      resetSimulationNodes();
+    }
+    setHl7Event('ADT');
+
+    function resetSimulationNodes() {
+      document.getElementById('sim-badge-1').textContent = 'En Espera';
+      document.getElementById('sim-badge-1').className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-500';
+      document.getElementById('sim-node-1').className = 'p-5 rounded-xl border border-slate-800 bg-slate-900/60 text-center transition-all';
+
+      document.getElementById('sim-badge-2').textContent = 'En Espera';
+      document.getElementById('sim-badge-2').className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-500';
+      document.getElementById('sim-node-2').className = 'p-5 rounded-xl border border-slate-800 bg-slate-900/60 text-center transition-all';
+
+      document.getElementById('sim-badge-3').textContent = 'En Espera';
+      document.getElementById('sim-badge-3').className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-500';
+      document.getElementById('sim-node-3').className = 'p-5 rounded-xl border border-slate-800 bg-slate-900/60 text-center transition-all';
+
+      document.getElementById('btn-sim-text').textContent = 'Ejecutar Simulación de Flujo';
+    }
+
+    function runSimulation() {
+      resetSimulationNodes();
+      document.getElementById('btn-sim-text').textContent = 'Transmitiendo...';
+
+      // Etapa 1: Emisión en Casiopea EHR
+      document.getElementById('sim-node-1').className = 'p-5 rounded-xl border border-sky-400 bg-slate-900 text-center transition-all';
+      document.getElementById('sim-badge-1').textContent = 'Emisión OK';
+      document.getElementById('sim-badge-1').className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300';
+
+      // Etapa 2: Mapeo y Transformación en Mirth Connect
+      setTimeout(() => {
+        document.getElementById('sim-node-2').className = 'p-5 rounded-xl border border-sky-400 bg-slate-900 text-center transition-all';
+        document.getElementById('sim-badge-2').textContent = 'Mapeando Segmentos...';
+        document.getElementById('sim-badge-2').className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-sky-950 text-sky-300';
+      }, 1100);
+
+      // Etapa 3: Entrega y Confirmación ACK en el Subsistema
+      setTimeout(() => {
+        document.getElementById('sim-badge-2').textContent = 'Enrutado Exitoso';
+        document.getElementById('sim-node-3').className = 'p-5 rounded-xl border border-emerald-400 bg-slate-900 text-center transition-all';
+        document.getElementById('sim-badge-3').textContent = 'ACK Recibido (AA)';
+        document.getElementById('sim-badge-3').className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-bold';
+        document.getElementById('btn-sim-text').textContent = 'Simulación Completada ✓';
+      }, 2400);
+    }
+
+    // Funciones Utilitarias
+    function copyToClipboard(text, msg) {
+      navigator.clipboard.writeText(text);
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').textContent = msg;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.classList.remove('flex');
+        toast.classList.add('hidden');
+      }, 2500);
+    }
+
+    function copyHl7Raw() {
+      copyToClipboard(hl7Data[currentHl7].raw, 'Trama HL7 copiada al portapapeles');
+    }
+
+    function downloadVCard() {
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:Cortez García;Junior Alexander;;;
+FN:Junior Alexander Cortez García
+TITLE:Consultor Funcional de Sistemas Sanitarios & HL7
+ORG:Inetum España
+TEL;TYPE=CELL:+34665797189
+EMAIL;TYPE=INTERNET:junior_98_cortez@outlook.es
+URL:https://www.linkedin.com/in/junior-alexander-cortez-garcia-b8726a150
+ADR;TYPE=HOME:;;Madrid;;;España
+NOTE:Especialista en Sistemas Sanitarios, Casiopea EHR, HL7 y Mirth Connect
+END:VCARD`;
+
+      const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Junior_Cortez_Contacto.vcf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      copyToClipboard('+34 665 79 71 89', 'Tarjeta de contacto (vCard) descargada');
+    }
+  </script>
+</body>
+</html>
