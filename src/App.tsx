@@ -35,9 +35,10 @@ import {
   MessageSquare,
   Clock,
   Briefcase,
-  Camera,
-  Upload,
-  Filter
+  Filter,
+  Brain,
+  Sparkles,
+  Workflow
 } from 'lucide-react';
 
 // Profile picture default path (relative for GitHub Pages compatibility)
@@ -89,6 +90,8 @@ export default function App() {
     () => [
       'Consultor Funcional de Sistemas Sanitarios',
       'Especialista en Interoperabilidad (HL7 & Mirth ESB)',
+      'Orquestación Clínica, RIS e IA Diagnóstica (CAD)',
+      'Productividad & Automatización Asistencial con IA',
       'Ex-Referente de BBDD & Infraestructura (SQL Server & Dynatrace)',
       'Integrador Hospitalario Casiopea (EHR) & Departamentales'
     ],
@@ -114,41 +117,8 @@ export default function App() {
   // Copy toast state
   const [copiedItem, setCopiedItem] = useState<string | null>(null);
 
-  // User Personal Photo State & Custom Upload Handler (zero alterations, exact file)
-  const [avatarSrc, setAvatarSrc] = useState<string>(() => {
-    return localStorage.getItem('junior_cortez_avatar') || PROFILE_IMAGE;
-  });
-  const [hasCustomAvatar, setHasCustomAvatar] = useState<boolean>(() => {
-    return !!localStorage.getItem('junior_cortez_avatar');
-  });
-  const [isDraggingPhoto, setIsDraggingPhoto] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handlePhotoSelected = (file: File) => {
-    if (!file || !file.type.startsWith('image/')) return;
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const dataUrl = e.target?.result as string;
-      setAvatarSrc(dataUrl);
-      setHasCustomAvatar(true);
-      try {
-        localStorage.setItem('junior_cortez_avatar', dataUrl);
-      } catch (err) {
-        console.warn('LocalStorage quota:', err);
-      }
-      try {
-        await fetch('/api/upload-avatar', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: dataUrl })
-        });
-        handleCopy('Foto', 'Foto personal original aplicada y guardada con éxito');
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    reader.readAsDataURL(file);
-  };
+  // Interactive Ecosystem & Architecture Infogram Layer Filter
+  const [activeLayer, setActiveLayer] = useState<'todas' | 'capa1' | 'capa2' | 'capa3'>('todas');
 
 
   // Scroll listener for sticky header and section spy
@@ -270,18 +240,18 @@ END:VCARD`;
       id: 'stage-2',
       role: 'Arquitectura e Infraestructura Operativa',
       company: 'Inetum España',
-      period: '2024 - 2025',
-      badge: 'Disponibilidad & Rendimiento',
+      period: '2024 - 2026',
+      badge: 'Disponibilidad, IA & Automatización',
       summary:
-        'Supervisión y garantía de la alta disponibilidad, rendimiento y fiabilidad operativa de los sistemas hospitalarios en producción.',
+        'Supervisión y garantía de la alta disponibilidad operativa e impulso de la productividad técnica mediante herramientas de IA, agentes y automatización.',
       responsibilities: [
-        'Monitorización proactiva con Dynatrace APM para supervisar en tiempo real la disponibilidad, transaccionalidad y tiempos de respuesta en entornos críticos hospitalarios 24/7.',
-        'Programación, supervisión y optimización de tareas de fondo (background jobs) y procesos batch mediante Quartz Scheduler.',
-        'Gestión e inspección de interacciones del sistema sanitario vía Web Services (arquitecturas REST y SOAP), garantizando la consistencia de datos entre aplicaciones.',
-        'Detección y resolución preventiva de cuellos de botella en picos de demanda asistencial (urgencias, consultas externas, laboratorio).'
+        'Monitorización proactiva con Dynatrace para supervisar entornos críticos de producción hospitalaria 24/7.',
+        'Programación de tareas de fondo con Quartz Scheduler y gestión de interacciones del sistema vía Web Services (REST/SOAP).',
+        'Uso de Microsoft Copilot para la mejora de la productividad técnica, análisis y soporte en desarrollo.',
+        'Creación de agentes/bots personalizados y desarrollo de pequeñas aplicaciones internas para optimizar el flujo del conocimiento y automatizar procesos operativos.'
       ],
-      techStack: ['Dynatrace APM', 'Quartz Scheduler', 'Web Services REST/SOAP', 'Auditoría de Logs', 'Alta Disponibilidad'],
-      impactMetric: '99.9% de disponibilidad operativa en entornos de producción hospitalaria'
+      techStack: ['Dynatrace APM', 'Microsoft Copilot', 'Agentes / Bots Personalizados', 'Apps Internas', 'Quartz Scheduler', 'Web Services (REST/SOAP)'],
+      impactMetric: 'Automatización de flujos y 99.9% de disponibilidad operativa hospitalaria'
     },
     {
       id: 'stage-3',
@@ -515,6 +485,40 @@ END:VCARD`;
       description: 'Coordinación fluida entre equipos multidisciplinares: soporte, administradores de sistemas, desarrolladores y clientes.',
       tags: ['Colaboración', 'Mentoring', 'Visión 360°'],
       icon: 'Users'
+    },
+
+    // IA & Productividad Asistencial (Nuevo CV)
+    {
+      name: 'Microsoft Copilot para Productividad',
+      category: 'ia-productividad',
+      level: 'Avanzado',
+      description: 'Aceleración de análisis funcional, síntesis de especificaciones técnicas, resolución de incidencias complejas y documentación operativa.',
+      tags: ['Copilot', 'Productividad IT', 'Documentación Ágil'],
+      icon: 'Cpu'
+    },
+    {
+      name: 'Creación de Agentes & Bots Personalizados',
+      category: 'ia-productividad',
+      level: 'Avanzado',
+      description: 'Diseño e implementación de asistentes conversacionales y bots a medida para consulta de procedimientos y optimización de flujos operativos.',
+      tags: ['Custom Agents', 'Bots Operativos', 'Automatización'],
+      icon: 'Brain'
+    },
+    {
+      name: 'Apps Internas de Gestión del Conocimiento',
+      category: 'ia-productividad',
+      level: 'Avanzado',
+      description: 'Desarrollo de herramientas y aplicaciones internas para canalizar flujos de trabajo técnicos hospitalarios y automatizar tareas repetitivas.',
+      tags: ['Apps Internas', 'Knowledge Base', 'Flujos Operativos'],
+      icon: 'Workflow'
+    },
+    {
+      name: 'Orquestación e IA Diagnóstica (CAD)',
+      category: 'ia-productividad',
+      level: 'Especialista',
+      description: 'Arquitectura de integración para algoritmos de triaje y pre-análisis de imagen (detección de ictus y volumetría) con priorización de worklist.',
+      tags: ['CAD IA', 'Triage Radiológico', 'Priorización Automática'],
+      icon: 'Sparkles'
     }
   ];
 
@@ -582,6 +586,24 @@ END:VCARD`;
         'Disponibilidad inmediata de resultados en el Portal del Paciente para el usuario final.'
       ],
       systems: ['HL7 v2.5', 'Mirth Connect', 'RIS/PACS', 'ATLAS (AP)', 'SGLAC (Lab)', 'Oncofarm', 'Endobase', 'Portal Paciente']
+    },
+    {
+      id: 'orquestacion-ia-diagnostica',
+      title: 'Ecosistema de Interoperabilidad Sanitaria Avanzada',
+      subtitle: 'Flujo Clínico, Físico (Plexus) e Inteligencia Artificial Diagnóstica (CAD)',
+      client: 'Inetum / Quirónsalud & Red Radiológica',
+      period: '2025 - 2026',
+      challenge:
+        'Conectar armónicamente el cerebro clínico (HIS Casiopea) con el Patient Journey físico en hospital (kioskos autoadmisión Plexus) y el flujo radiológico (RIS Carestream/GE TAC), integrando una capa de Inteligencia Artificial Diagnóstica capaz de pre-analizar estudios y priorizar casos críticos (código ictus, tumores) en tiempo récord.',
+      solution:
+        'Orquestación tri-capa end-to-end: Capa 1 (Casiopea como motor maestro de citas y peticiones HL7 ORM), Capa 2 (Plexus para auto-checkin con DNI/tarjeta, llamador y aviso de llegada automático a Casiopea), y Capa 3 (RIS Carestream VUE, DICOM MWL hacia TAC sin tecleo manual, Mirth ESB y Orquestador de Flujo con IA Diagnóstica CAD que pre-analiza imágenes y altera dinámicamente la lista de trabajo del radiólogo para situar casos críticos en el N.º 1, cerrando con HL7 ORU y visor HTML5 VUE Motion integrado en la HCE).',
+      results: [
+        'Priorización automática al N.º 1 en lista de trabajo para patologías tiempo-dependientes (Código Ictus / Tumores).',
+        'Eliminación del 100% del tecleo manual para técnicos de rayos mediante DICOM Modality Worklist (MWL).',
+        'Trazabilidad integral desde la citación en kiosko hasta el dictado e informe firmado en Casiopea.',
+        'Perfil Puente Validado: Dominio simultáneo de HIS (Maestro) + Plexus (Patient Journey) + Mirth (Integración) + RIS/IA con visión global.'
+      ],
+      systems: ['HIS Casiopea', 'Kiosko Plexus', 'Mirth Connect ESB', 'RIS Carestream VUE', 'GE Healthcare TAC', 'IA Diagnóstica CAD', 'Visor VUE Motion']
     }
   ];
 
@@ -662,6 +684,12 @@ END:VCARD`;
         return <Database className={iconClass} />;
       case 'FileCode':
         return <FileCode className={iconClass} />;
+      case 'Brain':
+        return <Brain className={iconClass} />;
+      case 'Sparkles':
+        return <Sparkles className={iconClass} />;
+      case 'Workflow':
+        return <Workflow className={iconClass} />;
       default:
         return <Terminal className={iconClass} />;
     }
@@ -887,74 +915,23 @@ END:VCARD`;
             </div>
 
             {/* Right: Authentic Portrait (Clean, Sober & Tailored) */}
+            {/* Right: Authentic Executive Portrait */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center">
               <div className="relative w-full max-w-sm sm:max-w-md">
                 
                 {/* Executive Frame */}
                 <div className="relative rounded-2xl bg-slate-900 border border-slate-700/80 p-3.5 shadow-xl">
                   
-                  {/* Photo container with interactive upload and drag-and-drop */}
-                  <div
-                    onDragOver={(e) => {
-                      e.preventDefault();
-                      setIsDraggingPhoto(true);
-                    }}
-                    onDragLeave={() => setIsDraggingPhoto(false)}
-                    onDrop={(e) => {
-                      e.preventDefault();
-                      setIsDraggingPhoto(false);
-                      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                        handlePhotoSelected(e.dataTransfer.files[0]);
-                      }
-                    }}
-                    className={`relative aspect-square w-full rounded-xl overflow-hidden bg-slate-950 border transition-all duration-300 group ${
-                      isDraggingPhoto
-                        ? 'border-sky-400 ring-4 ring-sky-500/20 shadow-2xl'
-                        : 'border-slate-800 hover:border-slate-700'
-                    }`}
-                  >
+                  {/* Photo container */}
+                  <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-slate-950 border border-slate-800 hover:border-slate-700 transition-all duration-300 group">
                     <img
-                      src={avatarSrc}
+                      src={PROFILE_IMAGE}
                       alt="Junior A. Cortez García"
                       className="w-full h-full object-cover object-top filter brightness-100 contrast-100 transition-transform duration-500 group-hover:scale-102"
                       onError={(e) => {
-                        (e.target as HTMLElement).style.display = 'none';
+                        console.warn('Profile image fallback');
                       }}
                     />
-
-                    {/* Hidden Native File Input */}
-                    <input
-                      type="file"
-                      ref={fileInputRef}
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => {
-                        if (e.target.files && e.target.files[0]) {
-                          handlePhotoSelected(e.target.files[0]);
-                        }
-                      }}
-                    />
-
-                    {/* Quick Button to update / load exact user photo */}
-                    <div className="absolute top-3 right-3 z-20">
-                      <button
-                        onClick={() => fileInputRef.current?.click()}
-                        className="px-2.5 py-1.5 rounded-lg bg-slate-900/90 hover:bg-sky-600 text-slate-200 hover:text-white border border-slate-700/80 hover:border-sky-400 text-xs font-medium flex items-center gap-1.5 shadow-lg backdrop-blur-md transition-all group/btn"
-                        title="Subir o cambiar por tu foto personal exacta (sin alteraciones)"
-                      >
-                        <Camera className="w-3.5 h-3.5 text-sky-400 group-hover/btn:text-white" />
-                        <span>{hasCustomAvatar ? 'Foto Personal' : 'Cargar mi foto'}</span>
-                      </button>
-                    </div>
-
-                    {/* Drag-and-drop feedback overlay */}
-                    {isDraggingPhoto && (
-                      <div className="absolute inset-0 bg-sky-950/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center z-30">
-                        <Upload className="w-8 h-8 text-sky-400 animate-bounce mb-2" />
-                        <p className="text-white text-sm font-semibold">Suelta aquí tu foto personal</p>
-                        <p className="text-slate-300 text-xs mt-1">Se guardará automáticamente en calidad original</p>
-                      </div>
-                    )}
 
                     {/* Bottom overlay badge */}
                     <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-slate-950/90 backdrop-blur-md border border-slate-800 flex items-center justify-between">
@@ -967,21 +944,6 @@ END:VCARD`;
                       </span>
                     </div>
                   </div>
-
-                  {/* Informative helper bar for exact photo selection */}
-                  {!hasCustomAvatar && (
-                    <div
-                      onClick={() => fileInputRef.current?.click()}
-                      className="mt-2.5 p-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/70 cursor-pointer flex items-center justify-between text-xs text-slate-300 transition-colors"
-                      title="Haz clic para seleccionar tu foto personal (Gemini_Generated_Image_ye9y31ye9y31ye9y.jpg)"
-                    >
-                      <div className="flex items-center gap-2 overflow-hidden">
-                        <Camera className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
-                        <span className="truncate">Selecciona tu foto original</span>
-                      </div>
-                      <span className="text-sky-400 font-semibold hover:underline flex-shrink-0">Cargar archivo</span>
-                    </div>
-                  )}
 
                   {/* Summary Metric Chips */}
                   <div className="mt-3 grid grid-cols-2 gap-2 text-center">
@@ -996,7 +958,6 @@ END:VCARD`;
                   </div>
 
                 </div>
-
 
               </div>
             </div>
@@ -1230,6 +1191,7 @@ END:VCARD`;
               >
                 <option value="todos">Todos los Módulos ({skillsData.length})</option>
                 <option value="consultoria">Consultoría & Implantación ({skillsData.filter(s => s.category === 'consultoria').length})</option>
+                <option value="ia-productividad">IA & Productividad Asistencial ({skillsData.filter(s => s.category === 'ia-productividad').length})</option>
                 <option value="interoperabilidad">Interoperabilidad & Integración ({skillsData.filter(s => s.category === 'interoperabilidad').length})</option>
                 <option value="monitorizacion">Monitorización & Infraestructura ({skillsData.filter(s => s.category === 'monitorizacion').length})</option>
                 <option value="bbdd">Bases de Datos & Análisis ({skillsData.filter(s => s.category === 'bbdd').length})</option>
@@ -1247,6 +1209,7 @@ END:VCARD`;
             {[
               { id: 'todos', label: 'Todos los Módulos', short: 'Todos', icon: Layers, count: skillsData.length },
               { id: 'consultoria', label: 'Consultoría & Implantación', short: 'Consultoría', icon: Stethoscope, count: skillsData.filter(s => s.category === 'consultoria').length },
+              { id: 'ia-productividad', label: 'IA & Productividad Asistencial', short: 'IA & Bots', icon: Brain, count: skillsData.filter(s => s.category === 'ia-productividad').length },
               { id: 'interoperabilidad', label: 'Interoperabilidad & Integración', short: 'Interoperabilidad', icon: Activity, count: skillsData.filter(s => s.category === 'interoperabilidad').length },
               { id: 'monitorizacion', label: 'Monitorización & Infraestructura', short: 'Monitorización', icon: Server, count: skillsData.filter(s => s.category === 'monitorizacion').length },
               { id: 'bbdd', label: 'Bases de Datos & Análisis', short: 'Bases de Datos', icon: Database, count: skillsData.filter(s => s.category === 'bbdd').length },
@@ -1287,6 +1250,7 @@ END:VCARD`;
               {selectedCategory !== 'todos' && (
                 <span className="px-2 py-0.5 rounded bg-slate-800 text-sky-400 border border-slate-700 font-medium">
                   {selectedCategory === 'consultoria' && 'Consultoría & Implantación'}
+                  {selectedCategory === 'ia-productividad' && 'IA & Productividad Asistencial'}
                   {selectedCategory === 'interoperabilidad' && 'Interoperabilidad & Integración'}
                   {selectedCategory === 'monitorizacion' && 'Monitorización & Infraestructura'}
                   {selectedCategory === 'bbdd' && 'Bases de Datos & Análisis'}
@@ -1455,6 +1419,255 @@ END:VCARD`;
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* ARQUITECTURA DE INTEROPERABILIDAD SANITARIA AVANZADA (INFOGRAMA & HITO DE ORQUESTACIÓN IA) */}
+          <div className="mt-16 bg-slate-900 border border-slate-700/80 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            
+            {/* Background ambient glow */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-sky-400 text-xs font-semibold mb-2">
+                  <Brain className="w-3.5 h-3.5" />
+                  <span>Infograma de Arquitectura & Hito de Orquestación</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  Ecosistema de Interoperabilidad Sanitaria Avanzada
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                  Flujo Clínico, Físico (Patient Journey) e Inteligencia Artificial Diagnóstica (CAD)
+                </p>
+              </div>
+
+              {/* Protocol Badges */}
+              <div className="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
+                <span className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-sky-400">HL7 (ORM/SIU/ORU)</span>
+                <span className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-emerald-400">DICOM MWL</span>
+                <span className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-indigo-400">IA CAD (Triage)</span>
+                <span className="px-2.5 py-1 rounded-md bg-slate-950 border border-slate-800 text-amber-400">URL Contextual</span>
+              </div>
+            </div>
+
+            {/* Interactive Layer Filter Selector */}
+            <div className="mt-6 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-semibold text-slate-400 mr-1 flex items-center gap-1.5">
+                <Workflow className="w-3.5 h-3.5 text-sky-400" />
+                <span>Explorar Capa:</span>
+              </span>
+              {[
+                { id: 'todas', label: 'Ecosistema Completo (Visión Global 360°)' },
+                { id: 'capa1', label: 'Capa 1: Cerebro Clínico & Agendas (Casiopea)' },
+                { id: 'capa2', label: 'Capa 2: Patient Journey Físico (Plexus)' },
+                { id: 'capa3', label: 'Capa 3: Flujo Radiológico & Capa IA (RIS / CAD)' }
+              ].map((layer) => {
+                const isSelected = activeLayer === layer.id;
+                return (
+                  <button
+                    key={layer.id}
+                    onClick={() => setActiveLayer(layer.id as any)}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      isSelected
+                        ? 'bg-sky-600 text-white font-semibold shadow-md ring-1 ring-sky-400/50'
+                        : 'bg-slate-950 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
+                    }`}
+                  >
+                    {layer.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Architecture Visual Grid */}
+            <div className="mt-6 space-y-4">
+              
+              {/* CAPA 1: EL CEREBRO CLÍNICO Y MAESTRO DE AGENDAS (CASIOPEA CÉNTRICA) */}
+              {(activeLayer === 'todas' || activeLayer === 'capa1') && (
+                <div className="p-5 rounded-xl bg-slate-950 border border-sky-900/60 transition-all">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse"></span>
+                      <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-sky-300">
+                        Capa 1: El Cerebro Clínico y Maestro de Agendas (Casiopea Céntrica)
+                      </h4>
+                    </div>
+                    <span className="text-[11px] font-mono text-slate-400 px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
+                      Motor Maestro HCE & Citaciones
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                    
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center font-bold text-[11px]">1</span>
+                        <span className="font-mono text-[10px] text-sky-400 font-semibold">HL7 ORM</span>
+                      </div>
+                      <p className="font-semibold text-white">Petición Clínica</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Médico peticionario solicita prueba diagnóstica (ej. TAC Cerebral urgente).</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center font-bold text-[11px]">2</span>
+                        <span className="font-mono text-[10px] text-sky-400 font-semibold">HIS/HCE</span>
+                      </div>
+                      <p className="font-semibold text-white">HIS Casiopea (Maestro)</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Dueño de la historia clínica, citas, salas y reglas de negocio asistenciales.</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center font-bold text-[11px]">14</span>
+                        <span className="font-mono text-[10px] text-amber-400 font-semibold">URL Context</span>
+                      </div>
+                      <p className="font-semibold text-white">VUE Motion Visor Web</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Visor HTML5 Zero-Footprint embebido por contexto URL en la HCE del médico.</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center font-bold text-[11px]">15</span>
+                        <span className="font-mono text-[10px] text-emerald-400 font-semibold">HL7 ORU</span>
+                      </div>
+                      <p className="font-semibold text-white">Cierre del Ciclo Clínico</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Informe validado y firmado disponible para el médico peticionario en Casiopea.</p>
+                    </div>
+
+                  </div>
+                </div>
+              )}
+
+              {/* CAPA 2: EL GESTOR DEL 'PATIENT JOURNEY' FÍSICO (PLEXUS INTEGRADO) */}
+              {(activeLayer === 'todas' || activeLayer === 'capa2') && (
+                <div className="p-5 rounded-xl bg-slate-950 border border-cyan-900/60 transition-all">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                      <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-cyan-300">
+                        Capa 2: El Gestor del 'Patient Journey' Físico (Plexus Integrado)
+                      </h4>
+                    </div>
+                    <span className="text-[11px] font-mono text-slate-400 px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
+                      Autoadmisión, Salas y Turnos
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-cyan-950 border border-cyan-700 text-cyan-300 flex items-center justify-center font-bold text-[11px]">5</span>
+                        <span className="font-mono text-[10px] text-cyan-400 font-semibold">HL7 SIU</span>
+                      </div>
+                      <p className="font-semibold text-white">Gestión Centralizada</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Sincronización continua de citas y actualización de agendas (SIU Schedule Update).</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-cyan-950 border border-cyan-700 text-cyan-300 flex items-center justify-center font-bold text-[11px]">6</span>
+                        <span className="font-mono text-[10px] text-cyan-400 font-semibold">DNI / Tarjeta</span>
+                      </div>
+                      <p className="font-semibold text-white">Kiosko Autoadmisión</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Autocheck-in autónomo del paciente sin esperas en mostradores de admisión.</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-cyan-950 border border-cyan-700 text-cyan-300 flex items-center justify-center font-bold text-[11px]">7</span>
+                        <span className="font-mono text-[10px] text-cyan-400 font-semibold">Status Llegada</span>
+                      </div>
+                      <p className="font-semibold text-white">Aviso de Paciente en Sala</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Plexus comunica a Casiopea la presencia real del paciente para aviso inmediato al técnico.</p>
+                    </div>
+
+                  </div>
+                </div>
+              )}
+
+              {/* CAPA 3: EL FLUJO RADIOLÓGICO Y CAPA INTELIGENTE (RIS E IA) */}
+              {(activeLayer === 'todas' || activeLayer === 'capa3') && (
+                <div className="p-5 rounded-xl bg-slate-950 border border-indigo-900/60 transition-all">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                      <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-indigo-300">
+                        Capa 3: El Flujo Radiológico y Capa Inteligente (RIS e IA Diagnóstica)
+                      </h4>
+                    </div>
+                    <span className="text-[11px] font-mono text-slate-400 px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
+                      Mirth ESB + RIS + TAC + Orquestador CAD
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+                    
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center font-bold text-[11px]">3</span>
+                        <span className="font-mono text-[10px] text-indigo-400 font-semibold">Mirth ESB</span>
+                      </div>
+                      <p className="font-semibold text-white">ESB Mirth Connect</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Transformación de sintaxis, normalización y enrutamiento fiable de HL7.</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center font-bold text-[11px]">9-10</span>
+                        <span className="font-mono text-[10px] text-emerald-400 font-semibold">DICOM MWL</span>
+                      </div>
+                      <p className="font-semibold text-white">Modalidad TAC (GE)</p>
+                      <p className="text-[11px] text-slate-400 mt-1">El técnico realiza la prueba sin tecleo manual; la lista de trabajo baja directamente por MWL.</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-indigo-950/50 border border-indigo-500/50 ring-1 ring-indigo-500/30">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-indigo-800 border border-indigo-400 text-white flex items-center justify-center font-bold text-[11px]">11</span>
+                        <span className="font-mono text-[10px] text-indigo-300 font-semibold animate-pulse">CAD ALERT</span>
+                      </div>
+                      <p className="font-semibold text-indigo-200">IA Diagnóstica (CAD)</p>
+                      <p className="text-[11px] text-slate-300 mt-1">Pre-análisis automático: detección inmediata de ictus y cuantificación tumoral.</p>
+                    </div>
+
+                    <div className="p-3.5 rounded-lg bg-slate-900/90 border border-slate-800">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="w-6 h-6 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center font-bold text-[11px]">12-13</span>
+                        <span className="font-mono text-[10px] text-amber-400 font-semibold">Triage Automático</span>
+                      </div>
+                      <p className="font-semibold text-white">Orquestador de Worklist</p>
+                      <p className="text-[11px] text-slate-400 mt-1">Priorización dinámica: reordena la lista del radiólogo y sitúa el caso crítico al N.º 1.</p>
+                    </div>
+
+                  </div>
+                </div>
+              )}
+
+            </div>
+
+            {/* Differentiating Value Banner (Bridge Profile) */}
+            <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-sky-950/80 via-slate-900 to-indigo-950/80 border border-sky-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-lg bg-sky-900/60 border border-sky-600/50 text-sky-300 flex-shrink-0">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div>
+                  <h5 className="text-xs sm:text-sm font-bold text-white">
+                    VALOR DIFERENCIAL (Bridge Profile):
+                  </h5>
+                  <p className="text-xs text-slate-300 mt-0.5">
+                    Conocimiento integral de <strong>HIS Casiopea (Maestro)</strong> + <strong>Plexus (Patient Journey Físico)</strong> + <strong>Mirth ESB (Integración)</strong> para implantar proyectos de <strong>RIS / IA Diagnóstica</strong> con visión global.
+                  </p>
+                </div>
+              </div>
+              <span className="text-xs font-mono px-3 py-1.5 rounded-lg bg-slate-950 text-sky-400 border border-slate-800 flex-shrink-0 font-semibold">
+                Inetum Sanidad
+              </span>
+            </div>
+
           </div>
 
         </div>
