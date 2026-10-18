@@ -226,15 +226,15 @@ END:VCARD`;
       period: '2025 - 2026',
       badge: 'Actualidad | Consultoría Asistencial',
       summary:
-        'Liderazgo funcional y técnico en campo durante despliegues asistenciales críticos e interoperabilidad hospitalaria en Quirónsalud Zaragoza.',
+        'Liderazgo funcional y técnico en campo durante despliegues asistenciales críticos e interoperabilidad hospitalaria en QS Zaragoza.',
       responsibilities: [
-        'Participación activa en el arranque de campo e implantación in-situ en el nuevo Hospital Quirónsalud Zaragoza, asegurando la continuidad asistencial durante el go-live.',
+        'Participación activa en el arranque de campo e implantación in-situ en el nuevo Hospital QS Zaragoza, asegurando la continuidad asistencial durante el go-live.',
         'Conducción de reuniones territoriales periódicas con el cliente sanitario para el seguimiento operativo, análisis de necesidades y priorización de tickets de impacto crítico.',
         'Análisis funcional de flujos de interoperabilidad (HL7 v2.x, Mirth ESB) conectando la Historia Clínica Electrónica Casiopea (EHR) con 6 subsistemas clave: RIS/PACS, ATLAS, SGLAC, ENDOBASE, ONCOFARM y PORTAL DEL PACIENTE.',
         'Interlocución directa y resolución funcional entre jefaturas de servicio médico, dirección asistencial y equipos de ingeniería de software.'
       ],
       techStack: ['Casiopea EHR', 'HL7 v2.5', 'Mirth Connect ESB', 'RIS/PACS', 'SGLAC', 'ATLAS', 'Oncofarm', 'Portal Paciente'],
-      impactMetric: '100% de subsistemas integrados y estabilizados en Quirónsalud Zaragoza'
+      impactMetric: '100% de subsistemas integrados y estabilizados en QS Zaragoza'
     },
     {
       id: 'stage-2',
@@ -304,8 +304,8 @@ END:VCARD`;
       name: 'Arranques Hospitalarios',
       category: 'consultoria',
       level: 'Especialista',
-      description: 'Metodología integral de puesta en marcha asistencial probada con éxito en el Hospital Quirónsalud Zaragoza.',
-      tags: ['Quirónsalud Zaragoza', 'Soporte Operacional', 'Estabilización'],
+      description: 'Metodología integral de puesta en marcha asistencial probada con éxito en el Hospital QS Zaragoza.',
+      tags: ['QS Zaragoza', 'Soporte Operacional', 'Estabilización'],
       icon: 'Building2'
     },
     {
@@ -538,9 +538,9 @@ END:VCARD`;
   const caseStudies: CaseStudy[] = [
     {
       id: 'quiron-zaragoza',
-      title: 'Arranque Integral Hospital Quirónsalud Zaragoza',
+      title: 'Arranque Integral Hospital QS Zaragoza',
       subtitle: 'Puesta en marcha asistencial y soporte in-situ durante el go-live',
-      client: 'Hospital Quirónsalud Zaragoza & Inetum',
+      client: 'Hospital QS Zaragoza & Inetum',
       period: '2025 - 2026',
       challenge:
         'La apertura del nuevo hospital requería migrar y sincronizar en caliente toda la actividad clínica hacia el sistema Casiopea EHR, garantizando cero pérdidas de datos y soporte presencial continuo a los profesionales sanitarios en su primera jornada asistencial.',
@@ -557,7 +557,6 @@ END:VCARD`;
       id: 'gobierno-territorial',
       title: 'Gobierno Territorial de Incidencias Sanitarias',
       subtitle: 'Comités periódicos de priorización y gestión de crisis asistenciales',
-      client: 'Red de Centros Hospitalarios',
       period: '2024 - 2026',
       challenge:
         'Acumulación de peticiones y discrepancias entre las expectativas clínicas y los tiempos de desarrollo IT, generando retrasos en la operativa hospitalaria y riesgos en el cumplimiento de los Acuerdos de Nivel de Servicio (SLAs).',
@@ -574,7 +573,6 @@ END:VCARD`;
       id: 'interoperabilidad-hl7',
       title: 'Integración Multidepartamental HL7 & Mirth Connect',
       subtitle: 'Ecosistema de interoperabilidad entre Casiopea y 6 subsistemas médicos',
-      client: 'Inetum / Quirónsalud',
       period: '2024 - 2026',
       challenge:
         'Cada departamento hospitalario opera con su propio software de nicho (Laboratorio, Anatomía Patológica, Oncología, Imagen, Endoscopias). La falta de un flujo estandarizado provocaba duplicidad de pacientes y demoras en los informes.',
@@ -591,7 +589,6 @@ END:VCARD`;
       id: 'orquestacion-ia-diagnostica',
       title: 'Ecosistema de Interoperabilidad Sanitaria Avanzada',
       subtitle: 'Flujo Clínico, Físico (Plexus) e Inteligencia Artificial Diagnóstica (CAD)',
-      client: 'Inetum / Quirónsalud & Red Radiológica',
       period: '2025 - 2026',
       challenge:
         'Conectar armónicamente el cerebro clínico (HIS Casiopea) con el Patient Journey físico en hospital (kioskos autoadmisión Plexus) y el flujo radiológico (RIS Carestream/GE TAC), integrando una capa de Inteligencia Artificial Diagnóstica capaz de pre-analizar estudios y priorizar casos críticos (código ictus, tumores) en tiempo récord.',
@@ -855,7 +852,7 @@ END:VCARD`;
 
               {/* Executive Summary Pitch */}
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                Especialista en <strong className="text-white font-semibold">Sistemas de Información Sanitaria</strong> con más de 5 años de trayectoria. Inicié como técnico de soporte N2, pasé a ser el referente técnico de <strong className="text-white font-semibold">Bases de Datos e Infraestructura (Dynatrace)</strong> y actualmente me enfoco en la <strong className="text-sky-400 font-semibold">consultoría funcional</strong>. Experiencia demostrada en arranques hospitalarios (ej. <em className="text-white not-italic font-medium">Hospital Quirónsalud Zaragoza</em>) y gestión de integraciones departamentales, destacando por traducir necesidades clínicas en soluciones técnicas eficaces.
+                Especialista en <strong className="text-white font-semibold">Sistemas de Información Sanitaria</strong> con más de 5 años de trayectoria. Inicié como técnico de soporte N2, pasé a ser el referente técnico de <strong className="text-white font-semibold">Bases de Datos e Infraestructura (Dynatrace)</strong> y actualmente me enfoco en la <strong className="text-sky-400 font-semibold">consultoría funcional</strong>. Experiencia demostrada en arranques hospitalarios (ej. <em className="text-white not-italic font-medium">Hospital QS Zaragoza</em>) y gestión de integraciones departamentales, destacando por traducir necesidades clínicas en soluciones técnicas eficaces.
               </p>
 
               {/* Professional Slogan Box */}
@@ -952,7 +949,7 @@ END:VCARD`;
                       <div className="text-[11px] text-slate-400">Sistemas Sanitarios</div>
                     </div>
                     <div className="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
-                      <div className="text-lg font-bold text-sky-400">Quirónsalud</div>
+                      <div className="text-lg font-bold text-sky-400">QS</div>
                       <div className="text-[11px] text-slate-400">Hospital Zaragoza</div>
                     </div>
                   </div>
@@ -980,7 +977,7 @@ END:VCARD`;
                 <span className="text-xs uppercase font-semibold tracking-wider">Arranque Crítico</span>
                 <Building2 className="w-4 h-4 text-sky-400" />
               </div>
-              <div className="text-2xl font-bold text-white">Quirónsalud ZGZ</div>
+              <div className="text-2xl font-bold text-white">Hospital QS Zaragoza</div>
               <p className="text-xs text-slate-400 mt-1">Implantación in-situ y soporte clínico</p>
             </div>
 
