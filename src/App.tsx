@@ -852,7 +852,7 @@ END:VCARD`;
 
               {/* Executive Summary Pitch */}
               <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
-                Especialista en <strong className="text-white font-semibold">Sistemas de Información Sanitaria</strong> con más de 5 años de trayectoria. Inicié como técnico de soporte N2, pasé a ser el referente técnico de <strong className="text-white font-semibold">Bases de Datos e Infraestructura (Dynatrace)</strong> y actualmente me enfoco en la <strong className="text-sky-400 font-semibold">consultoría funcional</strong>. Experiencia demostrada en arranques hospitalarios (ej. <em className="text-white not-italic font-medium">Hospital QS Zaragoza</em>) y gestión de integraciones departamentales, destacando por traducir necesidades clínicas en soluciones técnicas eficaces.
+                Especialista en <strong className="text-white font-semibold">Sistemas de Información Sanitaria</strong> con más de 5 años de trayectoria. Inicié como técnico de soporte N2, pasé a ser el referente técnico de <strong className="text-white font-semibold">Bases de Datos e Infraestructura (Dynatrace)</strong> y actualmente me enfoco en la <strong className="text-sky-400 font-semibold">consultoría funcional</strong>. Experiencia demostrada en arranques hospitalarios y gestión de integraciones departamentales, destacando por traducir necesidades clínicas en soluciones técnicas eficaces.
               </p>
 
               {/* Professional Slogan Box */}
@@ -949,8 +949,8 @@ END:VCARD`;
                       <div className="text-[11px] text-slate-400">Sistemas Sanitarios</div>
                     </div>
                     <div className="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800">
-                      <div className="text-lg font-bold text-sky-400">QS</div>
-                      <div className="text-[11px] text-slate-400">Hospital Zaragoza</div>
+                      <div className="text-lg font-bold text-sky-400">Buscando</div>
+                      <div className="text-[11px] text-slate-400">Nuevos retos</div>
                     </div>
                   </div>
 
